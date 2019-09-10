@@ -1,0 +1,2351 @@
+Running under process ID  114361
+Opening bmm-rereco-RunNov2017B_695.bmmReader.2017.root for output histograms
+Opening root://t3dcachedb.psi.ch:1094/pnfs/psi.ch/cms/trivcat//store/user/oozcelik/Charmonium/crab_BMM5_Charmonium_Run2017B_rereco/180730_161027/0000/bmm-rereco-RunNov2017B_695.root for input
+Chaining ... T1
+root://t3dcachedb.psi.ch:1094/pnfs/psi.ch/cms/trivcat//store/user/oozcelik/Charmonium/crab_BMM5_Charmonium_Run2017B_rereco/180730_161027/0000/bmm-rereco-RunNov2017B_695.root
+instantiating bmmReader
+==> treeReader01: constructor...
+==> treeReader01: init ...0x3b163e0
+treeReader01: initVariables: ...
+==> bmmReader: constructor...
+setYear(2017)
+checking cand types: 0
+setVerbosity(-32)
+==> treeReader01: Opened bmm-rereco-RunNov2017B_695.bmmReader.2017.root
+setMC(0)
+blind? 1
+running blinded
+==> bmmReader: Reading cuts/bmmReader.2017 for classes setup
+======================================================================
+==> candAna: name = candAnaMuMu, cuts/candAnaMuMu.notrigger.cuts, year 2017, era -><-
+======================================================================
+==> candMuMuAna: constructor...
+*** candAna basic cuts
+--> Added cut fWideMass  m(B candidate) [GeV]
+--> Added cut fGoodHLT  HLT
+--> Added cut fGoodMuonsID  lepton ID
+--> Added cut fGoodMuonsPt  p_{T,#mu} [GeV]
+--> Added cut fGoodMuonsEta  #eta_{#mu}
+--> Added cut fGoodTracks  good tracks
+--> Added cut fGoodTracksPt  p_{T,trk} [GeV]
+--> Added cut fGoodTracksEta  #eta_{trk} 
+*** candAna more basic cuts?
+**** candAna candidate cuts
+--> Added cut fGoodQ  q_{1} 1_{2}
+--> Added cut fGoodPvAveW8  <w8>
+--> Added cut fGoodPvLip  LIP(PV)
+--> Added cut fGoodPvLipS  LIPS(PV)
+--> Added cut fGoodPv2Lip  LIP(PV2)
+--> Added cut fGoodPv2LipS  LIPS(PV2)
+--> Added cut fGoodIp  IP
+--> Added cut fGoodIpS  IPS
+--> Added cut fGoodMaxDoca  MAXDOCA
+--> Added cut fGoodPt  p_{T,B}
+--> Added cut fGoodEta  #eta_{B}
+--> Added cut fGoodAlpha  #alpha
+--> Added cut fGoodFLS  l/#sigma(l)
+--> Added cut fGoodChi2  #chi^{2}
+--> Added cut fGoodIso  I_{trk}
+--> Added cut fGoodCloseTrack  close track veto
+--> Added cut fGoodDocaTrk  d_{ca}(trk)
+--> Added cut fGoodLastCut  lastCut
+*** candAna more candidate cuts?
+==> candAna: Reading cuts/candAnaMuMu.notrigger.cuts for cut settings
+    readFile cuts/candAnaMuMu.notrigger.cuts
+    readFile cuts/baseCuts.2017.cuts
+    readFile cuts/boxes.cuts
+    readFile cuts/tracks.cuts
+    readFile cuts/muons.2017.cuts
+gDirectory: bmm-rereco-RunNov2017B_695.bmmReader.2017.root:/candAnaMuMu
+creating 2 analysis channels
+TYPE:           1313
+TRUTHCAND:           531
+NOPRESELECTION     1
+PVAVEW8:           0.6
+setupReader, open file weights/TMVA-119-Events0_BDT.weights.xml  ->  booked reader 0x5a15350
+setupReader, open file weights/TMVA-119-Events1_BDT.weights.xml  ->  booked reader 0x5e28420
+setupReader, open file weights/TMVA-119-Events2_BDT.weights.xml  ->  booked reader 0x5b81020
+setupReader, open file weights/TMVA-119-Events0_BDT.weights.xml  ->  booked reader 0x5bd8f70
+setupReader, open file weights/TMVA-119-Events1_BDT.weights.xml  ->  booked reader 0x6117be0
+setupReader, open file weights/TMVA-119-Events2_BDT.weights.xml  ->  booked reader 0x5b2e7d0
+SIGBOXMIN:           5.2
+SIGBOXMAX:           5.45
+BGLBOXMIN:           4.8
+BGLBOXMAX:           5.2
+BGHBOXMIN:           5.45
+BGHBOXMAX:           6
+TRACKQUALITY:           4 
+TRACKPTLO:           0.6 GeV
+TRACKPTHI:           9999 GeV
+TRACKTIP:           1 cm
+TRACKLIP:           25 cm
+TRACKETALO:           -2.4 
+TRACKETAHI:           2.4 
+MUIDMASK:           80
+MUIDRESULT:           80
+MUBDTXML:       muonid-bmm4-B-25
+setupMuonMvaReader, open file weights/TMVA-muonid-bmm4-B-25.weights.xml
+  read 86 lines 
+  14 variables
+MUBDT:           0.45
+MUBDTXML1:       muonid-bmm4-B-25
+setupMuonMvaReader, open file weights/TMVA-muonid-bmm4-B-25.weights.xml
+  read 86 lines 
+  14 variables
+MUBDT1:           0.45
+----------------------------------------------------------------------
+channel             0         1
+metaMin         0.000     0.700
+metaMax         0.700     1.400
+muonBDT         0.540     0.540 (ignored) 
+l1seeds         0 1 2     0 1 2 
+mBdLo           5.200     5.200
+mBdHi           5.300     5.300
+mBsLo           5.300     5.300
+mBsHi           5.450     5.450
+mBuLo           5.200     5.200
+mBuHi           5.300     5.300
+m1pt            4.000     4.000
+m2pt            4.000     4.000
+etaMin        -99.000   -99.000
+etaMax         99.000    99.000
+pt              6.500     6.500
+iso             0.800     0.800
+m1iso           0.800     0.800
+m2iso           0.800     0.800
+chi2dof         2.500     2.500
+alpha           0.100     0.100
+fls3d          10.000    10.000
+flsxy           3.000     3.000
+docatrk         0.005     0.005
+closetrk        3.000     3.000
+closetrks1     99.000    99.000
+closetrks2     99.000    99.000
+closetrks3     99.000    99.000
+maxdoca         0.100     0.100
+pvip            0.015     0.015
+pvips           3.000     3.000
+pvlip          99.000    99.000
+pvlips         99.000    99.000
+pv2lip        -99.000   -99.000
+pv2lips       -99.000   -99.000
+bdtXml       TMVA-119  TMVA-119
+bdtCut          0.250     0.250
+bdtMuPt         3.500     3.500
+----------------------------------------------------------------------
+JSON FILE:           ../common/json/Cert_294927-306462_13TeV_EOY2017ReReco_Collisions17_JSON.txt
+DSNAME:           Charmonium
+==>candAnaMuMu: bookHist
+==> bmmReader: fVerbose = -32
+JSON initializing from ../common/json/Cert_294927-306462_13TeV_EOY2017ReReco_Collisions17_JSON.txt
+     read 474 runs with 206562 lumisections
+No LUMIFILE provided, deriving LUMIFILE from ../common/json/Cert_294927-306462_13TeV_EOY2017ReReco_Collisions17_JSON.txt
+Lumi initializing from ../common/json/Cert_294927-306462_13TeV_EOY2017ReReco_Collisions17_JSON.lumi
+==> treeReader01: Chain has a total of 6838 events
+==> treeReader01: Running over 100 events
+                 0 root://t3dcachedb.psi.ch/pnfs/psi.ch/cms/trivcat/store/user/oozcelik/Charmonium/crab_BMM5_Charmonium_Run2017B_rereco/180730_161027/0000/bmm-rereco-RunNov2017B_695.root
+ .. Event        0 (run:   297429, event:   69264708, ls:    41, time now: 2018-09-14 14:41:50.230195000+0200)
+======================================================================
+type = 1313, mass = 3.1153 :  getting sig track 0
+  207 getting sig track 1
+  210
+ event: 69264708 run: 297429 LS: 41 JSON: 1 ievt: 0 cands: 2 verbose: -32 MC: 0 n(1313) = 1 m = 3.1153
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 ; 0 32 0 0 0 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+Updating AnalysisCuts(candAnaMuMu) for the first time
+==> cand 1313 at 0/0 run 297429 ls 41 event 69264708 json 1 chan = -1 hlt1 0 TOS 0 presel = 0
+nTriggers: 
+======================================================================
+ event: 70177500 run: 297429 LS: 41 JSON: 1 ievt: 1 cands: 3 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_JpsiTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+======================================================================
+type = 1313, mass = 3.136 :  getting sig track 8
+  230 getting sig track 9
+  254
+ event: 70226558 run: 297429 LS: 41 JSON: 1 ievt: 2 cands: 4 verbose: -32 MC: 0 n(1313) = 1 m = 3.136
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+L1 trigger fired ->L1_Mu20_IsoEG6<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 3/3 run 297429 ls 41 event 70226558 json 1 chan = 1 hlt1 0 TOS 0 presel = 1
+======================================================================
+type = 1313, mass = 3.10225 :  getting sig track 24
+  174 getting sig track 25
+  779
+ event: 69726651 run: 297429 LS: 41 JSON: 1 ievt: 3 cands: 14 verbose: -32 MC: 0 n(1313) = 1 m = 3.10225
+triggerHLT::result: HLT_DoubleMu4_JpsiTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 9/9 run 297429 ls 41 event 69726651 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.06647 :  getting sig track 0
+  143 getting sig track 1
+  173
+ event: 68699823 run: 297429 LS: 41 JSON: 1 ievt: 4 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.06647
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68699823 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.09018 :  getting sig track 61
+  193 getting sig track 62
+  612
+ event: 70229903 run: 297429 LS: 41 JSON: 1 ievt: 5 cands: 24 verbose: -32 MC: 0 n(1313) = 1 m = 3.09018
+triggerHLT::result: HLT_DoubleMu4_3_Jpsi_Displaced_v9 wasrun = 1 ps = 14 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 23/23 run 297429 ls 41 event 70229903 json 1 chan = 0 hlt1 0 TOS 0 presel = 1
+======================================================================
+type = 1313, mass = 3.21233 :  getting sig track 0
+  613 getting sig track 1
+  614
+ event: 68953278 run: 297429 LS: 41 JSON: 1 ievt: 6 cands: 3 verbose: -32 MC: 0 n(1313) = 1 m = 3.21233
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: AlCa_EcalPi0EEonly_v9 wasrun = 1 ps = 2 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleJet100er3p0<-
+L1 trigger fired ->L1_HTT270er<-
+L1 trigger fired ->L1_HTT280er<-
+L1 trigger fired ->L1_HTT300er<-
+L1 trigger fired ->L1_DoubleJet100er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_Mu6_HTT240er<-
+L1 trigger fired ->L1_Mu6_HTT250er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT200er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT220er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT240er<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu5_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+L1 trigger fired ->L1_Mu6_HTT200er<-
+L1 trigger fired ->L1_Mu8_HTT150er<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68953278 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.11419 :  getting sig track 0
+  158 getting sig track 1
+  1393
+ event: 69139734 run: 297429 LS: 41 JSON: 1 ievt: 7 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.11419
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69139734 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.09186 :  getting sig track 0
+  89 getting sig track 1
+  247
+ event: 69273896 run: 297429 LS: 41 JSON: 1 ievt: 8 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.09186
+triggerHLT::result: HLT_Mu7p5_Track3p5_Jpsi_v5 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69273896 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.09745 :  getting sig track 0
+  99 getting sig track 1
+  115
+ event: 69373755 run: 297429 LS: 41 JSON: 1 ievt: 9 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.09745
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_TripleMu_5_3_3<-
+L1 trigger fired ->L1_TripleMu_5_5_3<-
+L1 trigger fired ->L1_TripleMu3_SQ<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_TripleMu_5_3_0_DoubleMu_5_3_OS_Mass_Max17<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69373755 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.12088 :  getting sig track 24
+  221 getting sig track 25
+  256
+ event: 68863928 run: 297429 LS: 41 JSON: 1 ievt: 10 cands: 10 verbose: -32 MC: 0 n(1313) = 1 m = 3.12088
+triggerHLT::result: HLT_DoubleMu4_JpsiTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 9/9 run 297429 ls 41 event 68863928 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.06672 :  getting sig track 0
+  434 getting sig track 1
+  1258
+ event: 69994548 run: 297429 LS: 41 JSON: 1 ievt: 11 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.06672
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_TripleMu_5_3_0_DoubleMu_5_3_OS_Mass_Max17<-
+L1 trigger fired ->L1_DoubleMu5_OS_EG12<-
+tt candAnaMuMu summary of L1: ; 0 0 0 0 0 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69994548 json 1 chan = -1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.17229 :  getting sig track 0
+  256 getting sig track 1
+  995
+ event: 69883007 run: 297429 LS: 41 JSON: 1 ievt: 12 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.17229
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu23_EG10<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu5_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+L1 trigger fired ->L1_Mu20_EG10<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69883007 json 1 chan = -1 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 69984617 run: 297429 LS: 41 JSON: 1 ievt: 13 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_JpsiTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_TripleMu_4_4_4<-
+L1 trigger fired ->L1_TripleMu_5_3_3<-
+L1 trigger fired ->L1_TripleMu_5_5_3<-
+L1 trigger fired ->L1_Mu18_HTT100er<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu15_HTT100er<-
+L1 trigger fired ->L1_TripleMu3_SQ<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_TripleMu_5_3_0_DoubleMu_5_3_OS_Mass_Max17<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_15_5 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 32 0 0 0 2 0 
+======================================================================
+ event: 69304262 run: 297429 LS: 41 JSON: 1 ievt: 14 cands: 2 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_HT450_Beamspot_v1 wasrun = 1 ps = 2 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_SingleEG34<-
+L1 trigger fired ->L1_SingleEG36<-
+L1 trigger fired ->L1_SingleEG38<-
+L1 trigger fired ->L1_SingleEG40<-
+L1 trigger fired ->L1_SingleEG45<-
+L1 trigger fired ->L1_SingleEG34er2p1<-
+L1 trigger fired ->L1_SingleEG36er2p1<-
+L1 trigger fired ->L1_SingleEG38er2p1<-
+L1 trigger fired ->L1_SingleIsoEG26<-
+L1 trigger fired ->L1_SingleIsoEG28<-
+L1 trigger fired ->L1_SingleIsoEG30<-
+L1 trigger fired ->L1_SingleIsoEG32<-
+L1 trigger fired ->L1_SingleIsoEG34<-
+L1 trigger fired ->L1_SingleIsoEG36<-
+L1 trigger fired ->L1_SingleIsoEG38<-
+L1 trigger fired ->L1_SingleIsoEG24er2p1<-
+L1 trigger fired ->L1_SingleIsoEG26er2p1<-
+L1 trigger fired ->L1_SingleIsoEG28er2p1<-
+L1 trigger fired ->L1_SingleIsoEG30er2p1<-
+L1 trigger fired ->L1_SingleIsoEG32er2p1<-
+L1 trigger fired ->L1_SingleIsoEG34er2p1<-
+L1 trigger fired ->L1_SingleIsoEG36er2p1<-
+L1 trigger fired ->L1_DoubleEG_22_10<-
+L1 trigger fired ->L1_DoubleEG_22_12<-
+L1 trigger fired ->L1_DoubleEG_22_15<-
+L1 trigger fired ->L1_DoubleEG_23_10<-
+L1 trigger fired ->L1_DoubleEG_24_17<-
+L1 trigger fired ->L1_DoubleEG_25_12<-
+L1 trigger fired ->L1_DoubleEG_25_13<-
+L1 trigger fired ->L1_DoubleEG_25_14<-
+L1 trigger fired ->L1_TripleEG_18_17_8<-
+L1 trigger fired ->L1_SingleTau80er2p1<-
+L1 trigger fired ->L1_SingleTau100er2p1<-
+L1 trigger fired ->L1_SingleTau120er2p1<-
+L1 trigger fired ->L1_DoubleTau50er2p1<-
+L1 trigger fired ->L1_DoubleTau70er2p1<-
+L1 trigger fired ->L1_DoubleIsoTau28er2p1<-
+L1 trigger fired ->L1_DoubleIsoTau30er2p1<-
+L1 trigger fired ->L1_DoubleIsoTau32er2p1<-
+L1 trigger fired ->L1_DoubleIsoTau33er2p1<-
+L1 trigger fired ->L1_DoubleIsoTau34er2p1<-
+L1 trigger fired ->L1_DoubleIsoTau35er2p1<-
+L1 trigger fired ->L1_DoubleIsoTau36er2p1<-
+L1 trigger fired ->L1_DoubleIsoTau38er2p1<-
+L1 trigger fired ->L1_SingleJet120<-
+L1 trigger fired ->L1_SingleJet140<-
+L1 trigger fired ->L1_SingleJet150<-
+L1 trigger fired ->L1_SingleJet160<-
+L1 trigger fired ->L1_SingleJet170<-
+L1 trigger fired ->L1_SingleJet180<-
+L1 trigger fired ->L1_SingleJet200<-
+L1 trigger fired ->L1_DoubleJet100er3p0<-
+L1 trigger fired ->L1_DoubleJet112er3p0<-
+L1 trigger fired ->L1_DoubleJet120er3p0<-
+L1 trigger fired ->L1_TripleJet_84_68_48_VBF<-
+L1 trigger fired ->L1_TripleJet_88_72_56_VBF<-
+L1 trigger fired ->L1_TripleJet_92_76_64_VBF<-
+L1 trigger fired ->L1_QuadJet60er3p0<-
+L1 trigger fired ->L1_HTT270er<-
+L1 trigger fired ->L1_HTT280er<-
+L1 trigger fired ->L1_HTT300er<-
+L1 trigger fired ->L1_HTT320er<-
+L1 trigger fired ->L1_HTT340er<-
+L1 trigger fired ->L1_HTT380er<-
+L1 trigger fired ->L1_HTT400er<-
+L1 trigger fired ->L1_HTT450er<-
+L1 trigger fired ->L1_HTT500er<-
+L1 trigger fired ->L1_ETM105<-
+L1 trigger fired ->L1_ETM110<-
+L1 trigger fired ->L1_ETM115<-
+L1 trigger fired ->L1_ETM120<-
+L1 trigger fired ->L1_ETMHF120<-
+L1 trigger fired ->L1_IsoEG24er2p1_Jet26er3p0_dR_Min0p3<-
+L1 trigger fired ->L1_IsoEG26er2p1_Jet34er3p0_dR_Min0p3<-
+L1 trigger fired ->L1_IsoEG28er2p1_Jet34er3p0_dR_Min0p3<-
+L1 trigger fired ->L1_IsoEG30er2p1_Jet34er3p0_dR_Min0p3<-
+L1 trigger fired ->L1_IsoEG24er2p1_HTT100er<-
+L1 trigger fired ->L1_IsoEG26er2p1_HTT100er<-
+L1 trigger fired ->L1_IsoEG28er2p1_HTT100er<-
+L1 trigger fired ->L1_IsoEG24er2p1_TripleJet_26er3p0_26_26er3p0<-
+L1 trigger fired ->L1_Mu18_HTT100er<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu20_EG17<-
+L1 trigger fired ->L1_Mu5_EG23<-
+L1 trigger fired ->L1_Mu5_IsoEG20<-
+L1 trigger fired ->L1_Mu7_EG23<-
+L1 trigger fired ->L1_Mu7_IsoEG20<-
+L1 trigger fired ->L1_Mu7_IsoEG23<-
+L1 trigger fired ->L1_HTT250er_QuadJet_70_55_40_35_er2p5<-
+L1 trigger fired ->L1_HTT280er_QuadJet_70_55_40_35_er2p5<-
+L1 trigger fired ->L1_HTT300er_QuadJet_70_55_40_35_er2p5<-
+L1 trigger fired ->L1_DoubleJet100er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_IsoTau40er_ETM80<-
+L1 trigger fired ->L1_IsoTau40er_ETM85<-
+L1 trigger fired ->L1_IsoTau40er_ETM90<-
+L1 trigger fired ->L1_IsoTau40er_ETM95<-
+L1 trigger fired ->L1_IsoTau40er_ETM100<-
+L1 trigger fired ->L1_IsoTau40er_ETMHF80<-
+L1 trigger fired ->L1_IsoTau40er_ETMHF90<-
+L1 trigger fired ->L1_Mu22er2p1_IsoTau40er2p1<-
+L1 trigger fired ->L1_QuadJet36er3p0_IsoTau52er2p1<-
+L1 trigger fired ->L1_ETM110_Jet60_dPhi_Min0p4<-
+L1 trigger fired ->L1_DoubleJet60er3p0_ETM80<-
+L1 trigger fired ->L1_DoubleJet60er3p0_ETM90<-
+L1 trigger fired ->L1_DoubleJet60er3p0_ETM100<-
+L1 trigger fired ->L1_DoubleEG_Iso23_10<-
+L1 trigger fired ->L1_DoubleEG_Iso24_10<-
+L1 trigger fired ->L1_TripleEG_Iso20_10_5<-
+L1 trigger fired ->L1_DoubleJet_100_30_DoubleJet30_Mass_Min620<-
+L1 trigger fired ->L1_IsoEG18er2p1_IsoTau24er2p1_dEta_Min0p2<-
+L1 trigger fired ->L1_IsoEG20er2p1_IsoTau25er2p1_dEta_Min0p2<-
+L1 trigger fired ->L1_IsoEG22er2p1_IsoTau26er2p1_dEta_Min0p2<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_IsoTau26er2p1<-
+L1 trigger fired ->L1_Mu20er2p1_IsoTau26er2p1<-
+L1 trigger fired ->L1_Mu6_HTT240er<-
+L1 trigger fired ->L1_Mu6_HTT250er<-
+L1 trigger fired ->L1_Mu15_HTT100er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF50_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF60_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF70_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF80_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT200er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT220er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT240er<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleEG6_HTT240er<-
+L1 trigger fired ->L1_DoubleEG6_HTT250er<-
+L1 trigger fired ->L1_DoubleEG6_HTT270er<-
+L1 trigger fired ->L1_DoubleEG6_HTT300er<-
+L1 trigger fired ->L1_ETMHF120_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_ETMHF120_Jet60_OR_DiJet30woTT28<-
+L1 trigger fired ->L1_ETMHF110_Jet90_OR_DoubleJet45_OR_TripleJet30<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu5_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_Mu6_DoubleEG17<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+L1 trigger fired ->L1_Mu20_EG10<-
+L1 trigger fired ->L1_MU20_EG15<-
+L1 trigger fired ->L1_Mu20_IsoEG6<-
+L1 trigger fired ->L1_Mu6_HTT200er<-
+L1 trigger fired ->L1_Mu8_HTT150er<-
+L1 trigger fired ->L1_EG27er2p1_HTT200er<-
+L1 trigger fired ->L1_DoubleEG6_HTT255er<-
+L1 trigger fired ->L1_Mu3_JetC120_dEta_Max0p4_dPhi_Max0p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+======================================================================
+type = 1313, mass = 3.09897 :  getting sig track 0
+  73 getting sig track 1
+  262
+ event: 68801294 run: 297429 LS: 41 JSON: 1 ievt: 15 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.09897
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68801294 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.60119 :  getting sig track 0
+  114 getting sig track 1
+  673
+ event: 69826793 run: 297429 LS: 41 JSON: 1 ievt: 16 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.60119
+triggerHLT::result: HLT_Dimuon10_PsiPrime_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69826793 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.10096 :  getting sig track 0
+  429 getting sig track 1
+  1049
+ event: 68695585 run: 297429 LS: 41 JSON: 1 ievt: 17 cands: 2 verbose: -32 MC: 0 n(1313) = 1 m = 3.10096
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_TripleMu_4_4_4<-
+L1 trigger fired ->L1_TripleMu_5_3_3<-
+L1 trigger fired ->L1_TripleMu_5_5_3<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_TripleMu_5_3_0_DoubleMu_5_3_OS_Mass_Max17<-
+tt candAnaMuMu summary of L1: ; 0 0 0 0 0 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68695585 json 1 chan = -1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.09166 :  getting sig track 34
+  196 getting sig track 35
+  677
+ event: 69882277 run: 297429 LS: 41 JSON: 1 ievt: 18 cands: 14 verbose: -32 MC: 0 n(1313) = 1 m = 3.09166
+triggerHLT::result: HLT_Mu30_TkMu0_Onia_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Mu50_v7 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_SingleTau80er2p1<-
+L1 trigger fired ->L1_SingleJet120<-
+L1 trigger fired ->L1_Mu18_HTT100er<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu22er2p1_IsoTau40er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_IsoTau26er2p1<-
+L1 trigger fired ->L1_Mu20er2p1_IsoTau26er2p1<-
+L1 trigger fired ->L1_Mu15_HTT100er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF50_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF60_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF70_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT200er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT220er<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p/<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+L1 trigger fired ->L1_Mu6_HTT200er<-
+L1 trigger fired ->L1_Mu8_HTT150er<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 13/13 run 297429 ls 41 event 69882277 json 1 chan = 1 hlt1 0 TOS 0 presel = 1
+======================================================================
+type = 1313, mass = 5.10438 :  getting sig track 0
+  297 getting sig track 1
+  944
+ event: 68748730 run: 297429 LS: 41 JSON: 1 ievt: 19 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 5.10438
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68748730 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 69544141 run: 297429 LS: 41 JSON: 1 ievt: 20 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+======================================================================
+type = 1313, mass = 3.06232 :  getting sig track 5
+  987 getting sig track 6
+  988
+ event: 69858330 run: 297429 LS: 41 JSON: 1 ievt: 21 cands: 3 verbose: -32 MC: 0 n(1313) = 1 m = 3.06232
+triggerHLT::result: HLT_DoubleMu4_Jpsi_Displaced_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 2/2 run 297429 ls 41 event 69858330 json 1 chan = -1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.70248 :  getting sig track 0
+  125 getting sig track 1
+  1400
+ event: 69653345 run: 297429 LS: 41 JSON: 1 ievt: 22 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.70248
+triggerHLT::result: HLT_Dimuon10_PsiPrime_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu5_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69653345 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 69821540 run: 297429 LS: 41 JSON: 1 ievt: 23 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_TripleMu_5_3_3<-
+L1 trigger fired ->L1_TripleMu_5_5_3<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_TripleMu3_SQ<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_TripleMu_5_3_0_DoubleMu_5_3_OS_Mass_Max17<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+======================================================================
+ event: 68707853 run: 297429 LS: 41 JSON: 1 ievt: 24 cands: 6 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_JpsiTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+======================================================================
+type = 1313, mass = 3.07258 :  getting sig track 0
+  363 getting sig track 1
+  845
+ event: 68690917 run: 297429 LS: 41 JSON: 1 ievt: 25 cands: 2 verbose: -32 MC: 0 n(1313) = 1 m = 3.07258
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68690917 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 69230529 run: 297429 LS: 41 JSON: 1 ievt: 26 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+======================================================================
+type = 1313, mass = 3.64343 :  getting sig track 0
+  154 getting sig track 1
+  809
+ event: 70163184 run: 297429 LS: 41 JSON: 1 ievt: 27 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.64343
+triggerHLT::result: HLT_Dimuon18_PsiPrime_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu5_SQ_OS_Mass7to18<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 70163184 json 1 chan = -1 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 69919070 run: 297429 LS: 41 JSON: 1 ievt: 28 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+======================================================================
+type = 1313, mass = 3.11131 :  getting sig track 87
+  43 getting sig track 88
+  47
+ event: 70171489 run: 297429 LS: 41 JSON: 1 ievt: 29 cands: 34 verbose: -32 MC: 0 n(1313) = 1 m = 3.11131
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: ; 0 0 0 0 0 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 33/33 run 297429 ls 41 event 70171489 json 1 chan = -1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.13522 :  getting sig track 8
+  141 getting sig track 9
+  1325
+ event: 70049881 run: 297429 LS: 41 JSON: 1 ievt: 30 cands: 4 verbose: -32 MC: 0 n(1313) = 1 m = 3.13522
+triggerHLT::result: HLT_DoubleMu4_JpsiTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 3/3 run 297429 ls 41 event 70049881 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 69863006 run: 297429 LS: 41 JSON: 1 ievt: 31 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_Mu5_EG23<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+======================================================================
+ event: 70021992 run: 297429 LS: 41 JSON: 1 ievt: 32 cands: 2 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: DST_Physics_v6 wasrun = 1 ps = 10 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+======================================================================
+ event: 69269795 run: 297429 LS: 41 JSON: 1 ievt: 33 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+======================================================================
+type = 1313, mass = 3.65953 :  getting sig track 0
+  138 getting sig track 1
+  975
+ event: 69525002 run: 297429 LS: 41 JSON: 1 ievt: 34 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.65953
+triggerHLT::result: HLT_DoubleMu4_PsiPrimeTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Mu30_TkMu0_Onia_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Mu20_v6 wasrun = 1 ps = 6 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon18_PsiPrime_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69525002 json 1 chan = 1 hlt1 0 TOS 0 presel = 1
+======================================================================
+type = 1313, mass = 3.16891 :  getting sig track 0
+  32 getting sig track 1
+  401
+ event: 69709882 run: 297429 LS: 41 JSON: 1 ievt: 35 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.16891
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: ; 0 0 0 0 0 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69709882 json 1 chan = -1 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 69622535 run: 297429 LS: 41 JSON: 1 ievt: 36 cands: 8 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_JpsiTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_11_4<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_11_4 L1_DoubleMu_12_5 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 32 16 0 4 2 0 
+======================================================================
+type = 1313, mass = 3.03708 :  getting sig track 0
+  172 getting sig track 1
+  1030
+ event: 69195964 run: 297429 LS: 41 JSON: 1 ievt: 37 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.03708
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu0er1p4_dEta_Max1p8_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69195964 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.39699 :  getting sig track 0
+  736 getting sig track 1
+  737
+ event: 69047627 run: 297429 LS: 41 JSON: 1 ievt: 38 cands: 2 verbose: -32 MC: 0 n(1313) = 1 m = 3.39699
+triggerHLT::result: HLT_Mu20_v6 wasrun = 1 ps = 6 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon18_PsiPrime_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: AlCa_EcalEtaEEonly_v9 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_DoubleIsoTau28er2p1<-
+L1 trigger fired ->L1_DoubleIsoTau30er2p1<-
+L1 trigger fired ->L1_DoubleIsoTau32er2p1<-
+L1 trigger fired ->L1_TripleJet_84_68_48_VBF<-
+L1 trigger fired ->L1_TripleJet_88_72_56_VBF<-
+L1 trigger fired ->L1_Mu18_HTT100er<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu5_EG23<-
+L1 trigger fired ->L1_Mu7_EG23<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_IsoTau26er2p1<-
+L1 trigger fired ->L1_Mu15_HTT100er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT200er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT220er<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu5_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+L1 trigger fired ->L1_Mu6_HTT200er<-
+L1 trigger fired ->L1_Mu8_HTT150er<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69047627 json 1 chan = 1 hlt1 0 TOS 0 presel = 1
+======================================================================
+ event: 69447085 run: 297429 LS: 41 JSON: 1 ievt: 39 cands: 6 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_JpsiTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+======================================================================
+type = 1313, mass = 3.07919 :  getting sig track 13
+  30 getting sig track 14
+  420
+ event: 70131532 run: 297429 LS: 41 JSON: 1 ievt: 40 cands: 6 verbose: -32 MC: 0 n(1313) = 1 m = 3.07919
+triggerHLT::result: HLT_DoubleMu4_JpsiTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_Mu6_HTT240er<-
+L1 trigger fired ->L1_Mu6_HTT250er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF50_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF60_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT200er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT220er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT240er<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_Mu6_HTT200er<-
+L1 trigger fired ->L1_Mu8_HTT150er<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 5/5 run 297429 ls 41 event 70131532 json 1 chan = 0 hlt1 0 TOS 0 presel = 1
+======================================================================
+type = 1313, mass = 3.09038 :  getting sig track 0
+  313 getting sig track 1
+  856
+ event: 68975794 run: 297429 LS: 41 JSON: 1 ievt: 41 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.09038
+triggerHLT::result: HLT_DoubleMu4_Jpsi_Displaced_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68975794 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.08767 :  getting sig track 0
+  83 getting sig track 1
+  284
+ event: 68965429 run: 297429 LS: 41 JSON: 1 ievt: 42 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.08767
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu5_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+L1 trigger fired ->L1_Mu8_HTT150er<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68965429 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.0499 :  getting sig track 0
+  169 getting sig track 1
+  172
+ event: 69032005 run: 297429 LS: 41 JSON: 1 ievt: 43 cands: 3 verbose: -32 MC: 0 n(1313) = 1 m = 3.0499
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_HTT100er<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu15_HTT100er<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69032005 json 1 chan = -1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.45541 :  getting sig track 0
+  90 getting sig track 1
+  97
+ event: 70319140 run: 297429 LS: 41 JSON: 1 ievt: 44 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.45541
+triggerHLT::result: HLT_Dimuon10_PsiPrime_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 70319140 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.65574 :  getting sig track 0
+  19 getting sig track 1
+  795
+ event: 70339583 run: 297429 LS: 41 JSON: 1 ievt: 45 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.65574
+triggerHLT::result: HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Mu30_TkMu0_Onia_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon10_PsiPrime_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon18_PsiPrime_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 70339583 json 1 chan = 1 hlt1 0 TOS 0 presel = 1
+======================================================================
+ event: 68811833 run: 297429 LS: 41 JSON: 1 ievt: 46 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+======================================================================
+type = 1313, mass = 3.15202 :  getting sig track 5
+  101 getting sig track 6
+  525
+ event: 68699710 run: 297429 LS: 41 JSON: 1 ievt: 47 cands: 3 verbose: -32 MC: 0 n(1313) = 1 m = 3.15202
+triggerHLT::result: HLT_DoubleMu4_JpsiTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 2/2 run 297429 ls 41 event 68699710 json 1 chan = 1 hlt1 0 TOS 0 presel = 1
+======================================================================
+ event: 69719954 run: 297429 LS: 41 JSON: 1 ievt: 48 cands: 4 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 32 0 0 4 2 0 
+======================================================================
+type = 1313, mass = 3.11051 :  getting sig track 13
+  59 getting sig track 14
+  78
+ event: 69891066 run: 297429 LS: 41 JSON: 1 ievt: 49 cands: 7 verbose: -32 MC: 0 n(1313) = 1 m = 3.11051
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_TripleMu_5_0_0<-
+L1 trigger fired ->L1_Mu18_HTT100er<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu15_HTT100er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF50_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF60_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+L1 trigger fired ->L1_Mu8_HTT150er<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 5/5 run 297429 ls 41 event 69891066 json 1 chan = -1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.06723 :  getting sig track 0
+  12 getting sig track 1
+  452
+ event: 68851042 run: 297429 LS: 41 JSON: 1 ievt: 50 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.06723
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68851042 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 4.85888 :  getting sig track 0
+  364 getting sig track 1
+  1039
+ event: 69390577 run: 297429 LS: 41 JSON: 1 ievt: 51 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 4.85888
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69390577 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.06204 :  getting sig track 0
+  100 getting sig track 1
+  122
+ event: 69273857 run: 297429 LS: 41 JSON: 1 ievt: 52 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.06204
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+triggerHLT::result: DST_Physics_v6 wasrun = 1 ps = 10 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69273857 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 70135762 run: 297429 LS: 41 JSON: 1 ievt: 53 cands: 8 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_JpsiTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: DST_Physics_v6 wasrun = 1 ps = 10 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+======================================================================
+type = 1313, mass = 3.08759 :  getting sig track 0
+  1121 getting sig track 1
+  1122
+ event: 69512132 run: 297429 LS: 41 JSON: 1 ievt: 54 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.08759
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu5_SQ_OS_Mass7to18<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69512132 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 69436798 run: 297429 LS: 41 JSON: 1 ievt: 55 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_Mu7p5_Track3p5_Jpsi_v5 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu5<-
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_Mu18_HTT100er<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu15_HTT100er<-
+tt candAnaMuMu summary of L1: ; 0 0 0 0 0 0 0 
+======================================================================
+type = 1313, mass = 3.12683 :  getting sig track 0
+  165 getting sig track 1
+  1006
+ event: 70072189 run: 297429 LS: 41 JSON: 1 ievt: 56 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.12683
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu5_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 70072189 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.70081 :  getting sig track 0
+  81 getting sig track 1
+  263
+ event: 69979918 run: 297429 LS: 41 JSON: 1 ievt: 57 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.70081
+triggerHLT::result: HLT_Dimuon10_PsiPrime_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69979918 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 5.98959 :  getting sig track 0
+  73 getting sig track 1
+  938
+ event: 70143932 run: 297429 LS: 41 JSON: 1 ievt: 58 cands: 2 verbose: -32 MC: 0 n(1313) = 1 m = 5.98959
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 70143932 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.07561 :  getting sig track 0
+  774 getting sig track 1
+  775
+ event: 69759660 run: 297429 LS: 41 JSON: 1 ievt: 59 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.07561
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69759660 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 2.91378 :  getting sig track 5
+  92 getting sig track 6
+  1084
+ event: 70181397 run: 297429 LS: 41 JSON: 1 ievt: 60 cands: 3 verbose: -32 MC: 0 n(1313) = 1 m = 2.91378
+triggerHLT::result: HLT_DoubleMu4_Jpsi_Displaced_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+tt candAnaMuMu summary of L1: L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 2/2 run 297429 ls 41 event 70181397 json 1 chan = -1 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 69274356 run: 297429 LS: 41 JSON: 1 ievt: 61 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+======================================================================
+ event: 69095069 run: 297429 LS: 41 JSON: 1 ievt: 62 cands: 2 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_JpsiTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF50_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+======================================================================
+ event: 69952382 run: 297429 LS: 41 JSON: 1 ievt: 63 cands: 2 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu5_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+======================================================================
+type = 1313, mass = 2.91601 :  getting sig track 0
+  97 getting sig track 1
+  239
+ event: 68729486 run: 297429 LS: 41 JSON: 1 ievt: 64 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 2.91601
+triggerHLT::result: HLT_DoubleMu4_3_Jpsi_Displaced_v9 wasrun = 1 ps = 14 run = 297429 ls = 41 json = 1
+triggerHLT::result: DST_Physics_v6 wasrun = 1 ps = 10 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68729486 json 1 chan = 0 hlt1 0 TOS 0 presel = 1
+======================================================================
+type = 1313, mass = 3.48601 :  getting sig track 0
+  161 getting sig track 1
+  1023
+ event: 68812998 run: 297429 LS: 41 JSON: 1 ievt: 65 cands: 2 verbose: -32 MC: 0 n(1313) = 1 m = 3.48601
+triggerHLT::result: HLT_Dimuon10_PsiPrime_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68812998 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 68748175 run: 297429 LS: 41 JSON: 1 ievt: 66 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_JpsiTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+======================================================================
+type = 1313, mass = 3.02795 :  getting sig track 0
+  163 getting sig track 1
+  869
+ event: 70059837 run: 297429 LS: 41 JSON: 1 ievt: 67 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.02795
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p4_dEta_Max1p8_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 70059837 json 1 chan = 1 hlt1 0 TOS 0 presel = 1
+======================================================================
+type = 1313, mass = 3.0918 :  getting sig track 0
+  82 getting sig track 1
+  97
+ event: 69769589 run: 297429 LS: 41 JSON: 1 ievt: 68 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.0918
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69769589 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.10439 :  getting sig track 106
+  69 getting sig track 107
+  321
+ event: 69484006 run: 297429 LS: 41 JSON: 1 ievt: 69 cands: 41 verbose: -32 MC: 0 n(1313) = 1 m = 3.10439
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 40/40 run 297429 ls 41 event 69484006 json 1 chan = 0 hlt1 0 TOS 0 presel = 1
+======================================================================
+type = 1313, mass = 3.07955 :  getting sig track 0
+  250 getting sig track 1
+  665
+ event: 69346762 run: 297429 LS: 41 JSON: 1 ievt: 70 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.07955
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69346762 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.07758 :  getting sig track 0
+  220 getting sig track 1
+  559
+ event: 69248655 run: 297429 LS: 41 JSON: 1 ievt: 71 cands: 2 verbose: -32 MC: 0 n(1313) = 1 m = 3.07758
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69248655 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.27843 :  getting sig track 0
+  26 getting sig track 1
+  847
+ event: 69961719 run: 297429 LS: 41 JSON: 1 ievt: 72 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.27843
+triggerHLT::result: HLT_AK8PFJet400_v6 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_DoubleMu20_7_Mass0to30_L1_DM4EG_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon18_PsiPrime_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: DST_Physics_v6 wasrun = 1 ps = 10 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_SingleEG34<-
+L1 trigger fired ->L1_SingleEG36<-
+L1 trigger fired ->L1_SingleEG38<-
+L1 trigger fired ->L1_SingleEG40<-
+L1 trigger fired ->L1_SingleEG45<-
+L1 trigger fired ->L1_SingleEG34er2p1<-
+L1 trigger fired ->L1_SingleEG36er2p1<-
+L1 trigger fired ->L1_SingleEG38er2p1<-
+L1 trigger fired ->L1_SingleIsoEG26<-
+L1 trigger fired ->L1_SingleIsoEG28<-
+L1 trigger fired ->L1_SingleIsoEG30<-
+L1 trigger fired ->L1_SingleIsoEG32<-
+L1 trigger fired ->L1_SingleIsoEG34<-
+L1 trigger fired ->L1_SingleIsoEG36<-
+L1 trigger fired ->L1_SingleIsoEG38<-
+L1 trigger fired ->L1_SingleIsoEG24er2p1<-
+L1 trigger fired ->L1_SingleIsoEG26er2p1<-
+L1 trigger fired ->L1_SingleIsoEG28er2p1<-
+L1 trigger fired ->L1_SingleIsoEG30er2p1<-
+L1 trigger fired ->L1_SingleIsoEG32er2p1<-
+L1 trigger fired ->L1_SingleIsoEG34er2p1<-
+L1 trigger fired ->L1_SingleIsoEG36er2p1<-
+L1 trigger fired ->L1_DoubleEG_22_10<-
+L1 trigger fired ->L1_DoubleEG_22_12<-
+L1 trigger fired ->L1_DoubleEG_22_15<-
+L1 trigger fired ->L1_DoubleEG_23_10<-
+L1 trigger fired ->L1_DoubleEG_24_17<-
+L1 trigger fired ->L1_DoubleEG_25_12<-
+L1 trigger fired ->L1_DoubleEG_25_13<-
+L1 trigger fired ->L1_DoubleEG_25_14<-
+L1 trigger fired ->L1_SingleTau80er2p1<-
+L1 trigger fired ->L1_SingleTau100er2p1<-
+L1 trigger fired ->L1_SingleTau120er2p1<-
+L1 trigger fired ->L1_SingleJet140<-
+L1 trigger fired ->L1_SingleJet150<-
+L1 trigger fired ->L1_SingleJet160<-
+L1 trigger fired ->L1_SingleJet170<-
+L1 trigger fired ->L1_SingleJet180<-
+L1 trigger fired ->L1_SingleJet200<-
+L1 trigger fired ->L1_DoubleJet100er3p0<-
+L1 trigger fired ->L1_DoubleJet112er3p0<-
+L1 trigger fired ->L1_DoubleJet120er3p0<-
+L1 trigger fired ->L1_HTT270er<-
+L1 trigger fired ->L1_HTT280er<-
+L1 trigger fired ->L1_HTT300er<-
+L1 trigger fired ->L1_HTT320er<-
+L1 trigger fired ->L1_HTT340er<-
+L1 trigger fired ->L1_HTT380er<-
+L1 trigger fired ->L1_HTT400er<-
+L1 trigger fired ->L1_HTT450er<-
+L1 trigger fired ->L1_HTT500er<-
+L1 trigger fired ->L1_ETM105<-
+L1 trigger fired ->L1_ETM110<-
+L1 trigger fired ->L1_ETM115<-
+L1 trigger fired ->L1_ETM120<-
+L1 trigger fired ->L1_ETM150<-
+L1 trigger fired ->L1_ETMHF120<-
+L1 trigger fired ->L1_ETMHF150<-
+L1 trigger fired ->L1_IsoEG24er2p1_Jet26er3p0_dR_Min0p3<-
+L1 trigger fired ->L1_IsoEG26er2p1_Jet34er3p0_dR_Min0p3<-
+L1 trigger fired ->L1_IsoEG28er2p1_Jet34er3p0_dR_Min0p3<-
+L1 trigger fired ->L1_IsoEG30er2p1_Jet34er3p0_dR_Min0p3<-
+L1 trigger fired ->L1_IsoEG24er2p1_HTT100er<-
+L1 trigger fired ->L1_IsoEG26er2p1_HTT100er<-
+L1 trigger fired ->L1_IsoEG28er2p1_HTT100er<-
+L1 trigger fired ->L1_Mu18_HTT100er<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu20_EG17<-
+L1 trigger fired ->L1_Mu23_EG10<-
+L1 trigger fired ->L1_Mu23_IsoEG10<-
+L1 trigger fired ->L1_Mu5_EG23<-
+L1 trigger fired ->L1_Mu5_IsoEG20<-
+L1 trigger fired ->L1_Mu7_EG23<-
+L1 trigger fired ->L1_Mu7_IsoEG20<-
+L1 trigger fired ->L1_Mu7_IsoEG23<-
+L1 trigger fired ->L1_IsoTau40er_ETM80<-
+L1 trigger fired ->L1_IsoTau40er_ETM85<-
+L1 trigger fired ->L1_IsoTau40er_ETM90<-
+L1 trigger fired ->L1_IsoTau40er_ETM95<-
+L1 trigger fired ->L1_IsoTau40er_ETM100<-
+L1 trigger fired ->L1_IsoTau40er_ETMHF80<-
+L1 trigger fired ->L1_IsoTau40er_ETMHF90<-
+L1 trigger fired ->L1_Mu22er2p1_IsoTau40er2p1<-
+L1 trigger fired ->L1_ETM110_Jet60_dPhi_Min0p4<-
+L1 trigger fired ->L1_DoubleJet60er3p0_ETM80<-
+L1 trigger fired ->L1_DoubleJet60er3p0_ETM90<-
+L1 trigger fired ->L1_DoubleJet60er3p0_ETM100<-
+L1 trigger fired ->L1_DoubleEG_Iso23_10<-
+L1 trigger fired ->L1_DoubleEG_Iso24_10<-
+L1 trigger fired ->L1_TripleEG_Iso20_10_5<-
+L1 trigger fired ->L1_DoubleJet_100_30_DoubleJet30_Mass_Min620<-
+L1 trigger fired ->L1_DoubleJet_100_35_DoubleJet35_Mass_Min620<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_IsoTau26er2p1<-
+L1 trigger fired ->L1_Mu20er2p1_IsoTau26er2p1<-
+L1 trigger fired ->L1_Mu6_HTT240er<-
+L1 trigger fired ->L1_Mu6_HTT250er<-
+L1 trigger fired ->L1_Mu15_HTT100er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF50_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF60_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF70_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF80_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT200er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT220er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT240er<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleEG6_HTT240er<-
+L1 trigger fired ->L1_DoubleEG6_HTT250er<-
+L1 trigger fired ->L1_DoubleEG6_HTT270er<-
+L1 trigger fired ->L1_DoubleEG6_HTT300er<-
+L1 trigger fired ->L1_ETMHF120_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_ETMHF120_Jet60_OR_DiJet30woTT28<-
+L1 trigger fired ->L1_ETMHF110_Jet90_OR_DoubleJet45_OR_TripleJet30<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu5_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_Mu6_DoubleEG17<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+L1 trigger fired ->L1_Mu20_EG10<-
+L1 trigger fired ->L1_MU20_EG15<-
+L1 trigger fired ->L1_Mu20_IsoEG6<-
+L1 trigger fired ->L1_Mu6_HTT200er<-
+L1 trigger fired ->L1_Mu8_HTT150er<-
+L1 trigger fired ->L1_EG27er2p1_HTT200er<-
+L1 trigger fired ->L1_DoubleEG6_HTT255er<-
+L1 trigger fired ->L1_Mu3_JetC120_dEta_Max0p4_dPhi_Max0p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69961719 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.11714 :  getting sig track 0
+  150 getting sig track 1
+  290
+ event: 68895329 run: 297429 LS: 41 JSON: 1 ievt: 73 cands: 3 verbose: -32 MC: 0 n(1313) = 1 m = 3.11714
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68895329 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 69607815 run: 297429 LS: 41 JSON: 1 ievt: 74 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+======================================================================
+type = 1313, mass = 3.12775 :  getting sig track 0
+  283 getting sig track 1
+  893
+ event: 70001428 run: 297429 LS: 41 JSON: 1 ievt: 75 cands: 2 verbose: -32 MC: 0 n(1313) = 1 m = 3.12775
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_HTT100er<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_Mu22er2p1_IsoTau40er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_IsoTau26er2p1<-
+L1 trigger fired ->L1_Mu20er2p1_IsoTau26er2p1<-
+L1 trigger fired ->L1_Mu15_HTT100er<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_Mu8_HTT150er<-
+L1 trigger fired ->L1_DoubleMu0er1p4_dEta_Max1p8_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 70001428 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.05007 :  getting sig track 0
+  261 getting sig track 1
+  307
+ event: 68883807 run: 297429 LS: 41 JSON: 1 ievt: 76 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.05007
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+triggerHLT::result: DST_Physics_v6 wasrun = 1 ps = 10 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68883807 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.07483 :  getting sig track 0
+  215 getting sig track 1
+  220
+ event: 69392469 run: 297429 LS: 41 JSON: 1 ievt: 77 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.07483
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69392469 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.0834 :  getting sig track 0
+  25 getting sig track 1
+  1006
+ event: 69051414 run: 297429 LS: 41 JSON: 1 ievt: 78 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.0834
+triggerHLT::result: HLT_Mu30_TkMu0_Onia_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Mu20_v6 wasrun = 1 ps = 6 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_11_4<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_SingleTau80er2p1<-
+L1 trigger fired ->L1_SingleJet140<-
+L1 trigger fired ->L1_SingleJet150<-
+L1 trigger fired ->L1_SingleJet160<-
+L1 trigger fired ->L1_SingleJet170<-
+L1 trigger fired ->L1_HTT270er<-
+L1 trigger fired ->L1_Mu18_HTT100er<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu23_EG10<-
+L1 trigger fired ->L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_IsoTau40er_ETM80<-
+L1 trigger fired ->L1_IsoTau40er_ETM85<-
+L1 trigger fired ->L1_IsoTau40er_ETMHF80<-
+L1 trigger fired ->L1_Mu22er2p1_IsoTau40er2p1<-
+L1 trigger fired ->L1_DoubleJet60er3p0_ETM80<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_IsoTau26er2p1<-
+L1 trigger fired ->L1_Mu20er2p1_IsoTau26er2p1<-
+L1 trigger fired ->L1_Mu6_HTT240er<-
+L1 trigger fired ->L1_Mu6_HTT250er<-
+L1 trigger fired ->L1_Mu15_HTT100er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF50_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF60_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF70_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_ETMHF80_Jet60_OR_DoubleJet30<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT200er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT220er<-
+L1 trigger fired ->L1_DoubleMu3_SQ_HTT240er<-
+L1 trigger fired ->L1_DoubleEG6_HTT240er<-
+L1 trigger fired ->L1_DoubleEG6_HTT250er<-
+L1 trigger fired ->L1_DoubleEG6_HTT270er<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu5_OS_EG12<-
+L1 trigger fired ->L1_Mu20_EG10<-
+L1 trigger fired ->L1_MU20_EG15<-
+L1 trigger fired ->L1_Mu6_HTT200er<-
+L1 trigger fired ->L1_Mu8_HTT150er<-
+L1 trigger fired ->L1_DoubleEG6_HTT255er<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_11_4 L1_DoubleMu_12_5 L1_DoubleMu_15_5 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 32 16 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69051414 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.78268 :  getting sig track 0
+  203 getting sig track 1
+  211
+ event: 69906973 run: 297429 LS: 41 JSON: 1 ievt: 79 cands: 2 verbose: -32 MC: 0 n(1313) = 1 m = 3.78268
+triggerHLT::result: HLT_Dimuon10_PsiPrime_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69906973 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.08043 :  getting sig track 0
+  298 getting sig track 1
+  1017
+ event: 70241018 run: 297429 LS: 41 JSON: 1 ievt: 80 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.08043
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 70241018 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 70345556 run: 297429 LS: 41 JSON: 1 ievt: 81 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+======================================================================
+type = 1313, mass = 3.07175 :  getting sig track 0
+  64 getting sig track 1
+  518
+ event: 68989941 run: 297429 LS: 41 JSON: 1 ievt: 82 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.07175
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_HTT100er<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu15_HTT100er<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu5_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+L1 trigger fired ->L1_Mu20_EG10<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68989941 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 69828135 run: 297429 LS: 41 JSON: 1 ievt: 83 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_Dimuon18_PsiPrime_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: DST_Physics_v6 wasrun = 1 ps = 10 run = 297429 ls = 41 json = 1
+triggerHLT::result: AlCa_RPCMuonNormalisation_v11 wasrun = 1 ps = 18 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu16er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau24er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_IsoTau26er2p1<-
+L1 trigger fired ->L1_Mu20er2p1_IsoTau26er2p1<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 0 0 
+======================================================================
+type = 1313, mass = 3.70292 :  getting sig track 0
+  134 getting sig track 1
+  151
+ event: 69343410 run: 297429 LS: 41 JSON: 1 ievt: 84 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.70292
+triggerHLT::result: HLT_Dimuon10_PsiPrime_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69343410 json 1 chan = 1 hlt1 0 TOS 0 presel = 1
+======================================================================
+ event: 69105728 run: 297429 LS: 41 JSON: 1 ievt: 85 cands: 2 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_TripleMu_5_0_0<-
+L1 trigger fired ->L1_TripleMu_5_3_3<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_TripleMu3_SQ<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_TripleMu_5_3_0_DoubleMu_5_3_OS_Mass_Max17<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+======================================================================
+ event: 70198436 run: 297429 LS: 41 JSON: 1 ievt: 86 cands: 2 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_Mu7p5_Track2_Jpsi_v5 wasrun = 1 ps = 2 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Mu7p5_Track3p5_Jpsi_v5 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu5<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+tt candAnaMuMu summary of L1: ; 0 0 0 0 0 0 0 
+======================================================================
+ event: 68862825 run: 297429 LS: 41 JSON: 1 ievt: 87 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_11_4<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+L1 trigger fired ->L1_Mu8_HTT150er<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_11_4 L1_DoubleMu_12_5 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 0 32 16 0 4 2 0 
+======================================================================
+type = 1313, mass = 3.85581 :  getting sig track 0
+  85 getting sig track 1
+  100
+ event: 68749536 run: 297429 LS: 41 JSON: 1 ievt: 88 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.85581
+triggerHLT::result: HLT_Dimuon10_PsiPrime_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 68749536 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.10182 :  getting sig track 0
+  109 getting sig track 1
+  965
+ event: 70354364 run: 297429 LS: 41 JSON: 1 ievt: 89 cands: 2 verbose: -32 MC: 0 n(1313) = 1 m = 3.10182
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 70354364 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.10953 :  getting sig track 0
+  857 getting sig track 1
+  858
+ event: 70288370 run: 297429 LS: 41 JSON: 1 ievt: 90 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.10953
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_DoubleMu_11_4<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_HTT100er<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu15_HTT100er<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_11_4 L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 16 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 70288370 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.92159 :  getting sig track 0
+  967 getting sig track 1
+  968
+ event: 69991148 run: 297429 LS: 41 JSON: 1 ievt: 91 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.92159
+triggerHLT::result: HLT_DoubleMu4_PsiPrimeTrk_Displaced_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: DST_Physics_v6 wasrun = 1 ps = 10 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4_OS_EG12<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_TripleMu_5_3_0_DoubleMu_5_3_OS_Mass_Max17<-
+L1 trigger fired ->L1_DoubleMu5_OS_EG12<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 32 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69991148 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.03149 :  getting sig track 0
+  1281 getting sig track 1
+  1283
+ event: 69208555 run: 297429 LS: 41 JSON: 1 ievt: 92 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.03149
+triggerHLT::result: HLT_IsoMu24_v6 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_IsoMu24_eta2p1_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_IsoMu27_v9 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69208555 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.23574 :  getting sig track 0
+  1273 getting sig track 1
+  1276
+type = 1313, mass = 11.0522 :  getting sig track 2
+  94 getting sig track 3
+  1276
+ event: 69906433 run: 297429 LS: 41 JSON: 1 ievt: 93 cands: 2 verbose: -32 MC: 0 n(1313) = 2 m = 11.0522
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_TripleMu_5_0_0<-
+L1 trigger fired ->L1_TripleMu_5_3_3<-
+L1 trigger fired ->L1_TripleMu3_SQ<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_TripleMu_5_3_0_DoubleMu_5_3_OS_Mass_Max17<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69906433 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 1/1 run 297429 ls 41 event 69906433 json 1 chan = 1 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 69477812 run: 297429 LS: 41 JSON: 1 ievt: 94 cands: 2 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_11_4<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_HTT100er<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_Mu16er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu18er2p1_Tau20er2p1<-
+L1 trigger fired ->L1_Mu15_HTT100er<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu7_SQ_EG7<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+L1 trigger fired ->L1_DoubleMu7_EG7<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_11_4 L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu6_SQ_OS ; 64 32 16 0 4 0 0 
+======================================================================
+type = 1313, mass = 3.07901 :  getting sig track 0
+  51 getting sig track 1
+  824
+ event: 69921069 run: 297429 LS: 41 JSON: 1 ievt: 95 cands: 2 verbose: -32 MC: 0 n(1313) = 1 m = 3.07901
+triggerHLT::result: HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_v9 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Mu20_v6 wasrun = 1 ps = 6 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Dimuon25_Jpsi_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_SingleMu20<-
+L1 trigger fired ->L1_SingleMu22<-
+L1 trigger fired ->L1_SingleMu25<-
+L1 trigger fired ->L1_SingleMu30<-
+L1 trigger fired ->L1_SingleMu20er2p1<-
+L1 trigger fired ->L1_SingleMu22er2p1<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu_20_2_SQ_Mass_Max20<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69921069 json 1 chan = -1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 2.90635 :  getting sig track 0
+  1152 getting sig track 1
+  1153
+ event: 69199244 run: 297429 LS: 41 JSON: 1 ievt: 96 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 2.90635
+triggerHLT::result: HLT_DoubleMu4_Jpsi_NoVertexing_v1 wasrun = 1 ps = 30 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_TripleMu_5_3_3<-
+L1 trigger fired ->L1_TripleMu_5_5_3<-
+L1 trigger fired ->L1_TripleMu3_SQ<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_TripleMu_5_3_0_DoubleMu_5_3_OS_Mass_Max17<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu6_SQ_OS ; 0 0 0 0 4 0 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 69199244 json 1 chan = -1 hlt1 0 TOS 0 presel = 0
+======================================================================
+type = 1313, mass = 3.14188 :  getting sig track 0
+  904 getting sig track 1
+  905
+ event: 70152333 run: 297429 LS: 41 JSON: 1 ievt: 97 cands: 1 verbose: -32 MC: 0 n(1313) = 1 m = 3.14188
+triggerHLT::result: HLT_Dimuon20_Jpsi_Barrel_Seagulls_v1 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu16<-
+L1 trigger fired ->L1_SingleMu18<-
+L1 trigger fired ->L1_DoubleMu_12_5<-
+L1 trigger fired ->L1_DoubleMu_12_8<-
+L1 trigger fired ->L1_DoubleMu_13_6<-
+L1 trigger fired ->L1_DoubleMu_15_5<-
+L1 trigger fired ->L1_DoubleMu_15_7<-
+L1 trigger fired ->L1_Mu18_Jet24er3p0<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ<-
+L1 trigger fired ->L1_DoubleMu_15_7_SQ_Mass_Min4<-
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu6_SQ_OS<-
+tt candAnaMuMu summary of L1: L1_DoubleMu_12_5 L1_DoubleMu_13_6 L1_DoubleMu_15_5 L1_DoubleMu_15_7 L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 L1_DoubleMu6_SQ_OS ; 64 32 0 0 4 2 0 
+event not signal triggered: fGoodHLT1 = 0 fHLT1Path = nada
+==> cand 1313 at 0/0 run 297429 ls 41 event 70152333 json 1 chan = 0 hlt1 0 TOS 0 presel = 0
+======================================================================
+ event: 68778766 run: 297429 LS: 41 JSON: 1 ievt: 98 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_DoubleMu4_3_Bs_v8 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4<-
+L1 trigger fired ->L1_DoubleMu4p5_SQ_OS_dR_Max1p2<-
+L1 trigger fired ->L1_Mu8_HTT150er<-
+tt candAnaMuMu summary of L1: L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 ; 0 0 0 0 0 2 0 
+======================================================================
+ event: 68699342 run: 297429 LS: 41 JSON: 1 ievt: 99 cands: 1 verbose: -32 MC: 0 n(1313) = 0 m = 0
+triggerHLT::result: HLT_Mu7p5_Track3p5_Jpsi_v5 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: HLT_Mu7p5_Track7_Jpsi_v5 wasrun = 1 ps = 1 run = 297429 ls = 41 json = 1
+triggerHLT::result: DST_Physics_v6 wasrun = 1 ps = 10 run = 297429 ls = 41 json = 1
+L1 trigger fired ->L1_SingleMu5<-
+tt candAnaMuMu summary of L1: ; 0 0 0 0 0 0 0 
+==> bmmReader: endAnalysis() destroying cand analysis modules
+This was for year 2017 and era -><-
+==> moncandAnaMuMu: events seen    = 100
+==> moncandAnaMuMu: cands analysed = 71
+==> moncandAnaMuMu: cands passed   = 71
+==> moncandAnaMuMu: cands failed   = 0
+==> treeReader01: Writing bmm-rereco-RunNov2017B_695.bmmReader.2017.root
+==> bmmReader: destructor...
+==> treeReader01: destructor ...

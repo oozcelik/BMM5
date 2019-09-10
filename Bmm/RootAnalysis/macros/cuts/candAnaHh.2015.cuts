@@ -1,0 +1,16 @@
+TYPE           211211
+TRUTHCAND         91
+MUON_VETO  1
+HH_MLO 4.
+HH_MHI 7.
+PVAVEW8          0.6
+# -- baseCuts
++input cuts/baseCuts.YEARERA.cuts
+# -- trigger
+TRIGRANGE PDTRIGGER
+# -- boxes
++input cuts/boxes.Bu2JpsiK.cuts
+# -- tracks
++input cuts/tracks.cuts
+# -- muons
++input cuts/muons.YEAR.cuts

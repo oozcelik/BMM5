@@ -1,0 +1,75 @@
+#!/usr/bin/env perl
+
+# ----------------------------------------------------------------------
+#
+# Usage: srmHadd -x URI -p pattern [-d] [-a "-count=900"] -o output.root
+# -----
+#
+# Examples: srmHadd \
+#           -x srm://t3se01.psi.ch:8443/srm/managerv2\?SFN=/pnfs/psi.ch/cms/trivcat/store/user/ursl/bmm4/runBmm/v01//Summer15_private \
+#           -p bmm-mc-Summer15_private-recoil0-v01 \
+#           -o /scratch/ursl/bmm4/v01/bmm-mc-Summer15_private-recoil0-v01.root
+#
+# ----------------------------------------------------------------------
+# Send all questions, wishes and complaints to the
+#
+# Author    Urs Langenegger <urslangenegger@gmail.com>
+# ----------------------------------------------------------------------
+
+
+my $dcap    = "dcap://t3se01.psi.ch:22125/pnfs/psi.ch/cms/trivcat";
+my $psi     = "srm://t3se01.psi.ch:8443/srm/managerv2\?SFN=/pnfs/psi.ch/cms/trivcat";
+my $root    = "root://t3dcachedb.psi.ch:1094/pnfs/psi.ch/cms/trivcat";
+my $xrdb    = "root://t3se01.psi.ch:1094/pnfs/psi.ch/cms/trivcat/";
+
+# -- Get arguments
+use Getopt::Std;
+getopts('a:do:p:x:');
+
+my $BMMBASE = $ENV{'BMMBASE'};
+
+# -- arguments for srmls
+if ($opt_a) {
+    ($arg = $opt_a) =~ s/\"//g;
+    print "--> srmHadd $arg $opt_x\n";
+}
+
+my $output = "merged.root";
+if ($opt_o) {$output = $opt_o;}
+
+my $pattern = "\\.root\$";
+if ($opt_p) {$pattern = $opt_p;}
+
+@merges = `$BMMBASE/perl/srmLs -x $opt_x -c -p $pattern`;
+
+# -- prepare list
+foreach $f (@merges) {
+    chop($f);
+    $f =~ s/^\ *//g;
+    #    print "dbx: $f\n";
+    if ($f =~ /$pattern/) {
+	print "pattern found: $f\n";
+	push(@urootfiles, $f);
+    }
+}
+@rootfiles = sort(@urootfiles);
+
+# -- now do it
+if ($#rootfiles > 0) {
+    print "hadd $output @rootfiles\n";
+    if ($opt_d) {
+    } else {
+	if (-e "$output") {unlink("$output"); }
+	system("hadd $output @rootfiles");
+    }
+} else {
+    ($oneFile = $rootfiles[0]) =~ s%$root%$xrdb%g;
+    # print "lcg-cp -b -D srmv2 $oneFile $output \n";
+    print "xrdcp $oneFile $output\n";
+    if ($opt_d) {
+    } else {
+	if (-e "$output") {unlink("$output"); }
+#	system("lcg-cp -b -D srmv2 $oneFile $output");
+	system("xrdcp $oneFile $output");
+    }
+}

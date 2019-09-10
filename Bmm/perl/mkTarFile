@@ -1,0 +1,63 @@
+#!/usr/bin/env perl
+
+# ----------------------------------------------------------------------
+#
+# Usage: cd $BMMBASE/..; $BMMBASE/perl/mkTarFile 150701.tar.gz
+# -----  cd $BMMBASE/../..; $BMMBASE/perl/mkTarFile -c 150701nc.tar.gz
+#
+#          -c  complete (for jobs without compilation)
+#
+# NOTE:  if the tar file is too large, then do 'scram b distclean'!!
+# ----
+# before:
+#  -rw-r--r-- 1 ursl psi-bphys 10658191 Mar  7 08:19 170307.tar.gz
+# after:
+#  -rw-r--r-- 1 ursl psi-bphys  4826253 Mar  7 08:37 170307.tar.gz
+#
+# ----------------------------------------------------------------------
+# Send all questions, wishes and complaints to the
+#
+# Author    Urs Langenegger <urslangenegger@gmail.com>
+# ----------------------------------------------------------------------
+
+# -c complete (to be invoked from CMSSW_X_Y_Z, allows to be used w/o compilation)
+
+use Getopt::Std;
+getopts('ci:x:');
+
+if ($ARGV[0]) {
+    $name = $ARGV[0];
+} else {
+    die "need a name for the tarfile\n";
+}
+
+$include  = "Bmm/CmsswAnalysis Bmm/RootAnalysis ";
+
+if ($opt_c) {
+    ($include = $include) =~ s%Bmm%src/Bmm%g;
+    $include .= " lib config python";
+}
+
+$exclude .= " --exclude .git";
+$exclude .= " --exclude obj/\\*.o";
+$exclude .= " --exclude chains";
+$exclude .= " --exclude Bmm/CmsswAnalysis/test";
+$exclude .= " --exclude Bmm/RootAnalysis/macros/chains";
+$exclude .= " --exclude \\*.root";
+$exclude .= " --exclude \\*.root.\\*";
+$exclude .= " --exclude \\*.pdf";
+$exclude .= " --exclude \\*.ps";
+$exclude .= " --exclude \\*.eps";
+$exclude .= " --exclude \\*.png";
+$exclude .= " --exclude \\*.log";
+$exclude .= " --exclude \\*.tex";
+$exclude .= " --exclude \\*.old";
+$exclude .= " --exclude .nfs\\*";
+$exclude .= " --exclude \\*~";
+if ($opt_x) {
+    $exclude .= " $opt_x";
+}
+
+
+system("tar zcvf $name $include $exclude");
+print("tar zcvf $name $include $exclude\n");

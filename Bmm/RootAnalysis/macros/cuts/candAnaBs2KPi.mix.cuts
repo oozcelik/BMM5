@@ -1,0 +1,13 @@
+TYPE          1000083
+DATACAND         1313
+TRUTHCAND         531
+TRIGRANGE    NOTRIGGER
+PVAVEW8          0.6
+# -- baseCuts
++input cuts/baseCuts.YEARERA.cuts
+# -- boxes
++input cuts/boxes.cuts
+# -- tracks
++input cuts/tracks.cuts
+# -- muons
++input cuts/muons.YEAR.cuts

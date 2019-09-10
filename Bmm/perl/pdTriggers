@@ -1,0 +1,483 @@
+#!/usr/bin/env perl
+
+# -- first create the ASCII files by running cmsRun **at CERN**, **in a sufficiently high CMSSW release**
+# $BMMBASE/perl/pdTriggers -a -s /frozen/...
+#
+# -- dump all triggers ever in a version of the PDs interesting for us
+# $BMMBASE/perl/pdTriggers -B
+#
+# -- dump all trigger menus present in ASCII files
+# $BMMBASE/perl/pdTriggers -c
+#
+# -- dump all (relevant) PDs
+# $BMMBASE/perl/pdTriggers -b
+#
+# -- dump all triggers in specific PD
+# $BMMBASE/perl/pdTriggers -p Charmonium
+#
+# -- dump all triggers in specific PD for a specific trigger menu
+# $BMMBASE/perl/pdTriggers -p Charmonium -s /frozen/2015/50ns_5e33/v2.2/HLT/V1
+#
+#
+# ----------------------------------------------------------------------
+# Send all questions, wishes and complaints to the
+#
+# Author    Urs Langenegger <urslangenegger@gmail.com>
+# ----------------------------------------------------------------------
+
+use lib "$ENV{BMMBASE}/perl/modules/Tie-IxHash-1.23/lib";
+use Tie::IxHash;
+
+use Getopt::Std;
+getopts('abBcDp:s:t:v');
+
+my $commandFrozen = "hltConfigFromDB --offline --configName ";
+my $commandCdaq   = "hltConfigFromDB --adg --v2 --configName ";
+
+
+# -- allow either /frozen/... or menu__frozen__... version
+if ($opt_s =~ /__/) {
+    $opt_s =~ s%__%/%g;
+    $opt_s =~ s%menu%%g;
+    #print "==> $opt_s\n";
+}
+
+my @skipPD = (
+    "Commissioning",
+    "HLTPhysics", "HLTMonitor", "LookAreaPD", "OnlineMonitor", "InitialPD", "L1Accept",
+    "RPCMonitor",
+    "FullTrack", "Templates",
+    "HighMultiplicity85", "HighMultplicity85",
+    "MonteCarlo",
+    "ParkingHT1", "ParkingHT2", "ParkingHT3", "ParkingHT4", "ParkingHT5", "ParkingMonitor",
+    "AlCaP0", "AlCaPhiSym", "AlCaLumiPixels", "AlCaElectron",
+    "DQMOfflinePD", "TestEnablesEcalHcalDQM",
+    "HINCaloJetsOther", "HINCaloJets", "HINPFJets", "HINPFJetsOther", "HINPhoton", "HINMuon",
+    "Test", "ElectronStream",
+    "HcalHPDNoise", "HCalNZS", "HcalNZS", "TestEnablesEcalHcal", "TestEnablesEcalHcalDQM", "HcalHPDNoise",
+    "EcalLaser", "NoBPTX",
+    "ToTOTEM",
+    "Express", "ExpressPhysics", "EventDisplay"
+    );
+
+
+
+# -- from https://twiki.cern.ch/twiki/bin/view/CMS/ConfDB740#Frozen_menus
+my @frozenMenus = (
+    "/frozen/2015/25ns14e33/v4.0/HLT/V4",
+    "/frozen/2015/25ns14e33/v4.0/HLT/V1",
+    "/frozen/2015/25ns14e33/v3.3/HLT/V2",
+    "/frozen/2015/25ns14e33/v3.3/HLT/V1",
+    "/frozen/2015/25ns14e33/v3.1/HLT/V3",
+    "/frozen/2015/25ns14e33/v3.1/HLT/V2",
+    "/frozen/2015/25ns14e33/v3.1/HLT/V1",
+    "/frozen/2015/25ns14e33/v3.0/HLT/V1",
+    "/frozen/2015/25ns14e33/v2.2/HLT/V2",
+    "/frozen/2015/25ns14e33/v2.2/HLT/V1",
+    "/frozen/2015/25ns14e33/v2.1/HLT/V1",
+    "/frozen/2015/25ns14e33/v2.0/HLT/V2",
+    "/frozen/2015/25ns14e33/v1.2/HLT/V2",
+    "/frozen/2015/25ns14e33/v1.1/HLT/V2",
+    "/frozen/2015/25ns14e33/v1.0/HLT/V3",
+    "/frozen/2015/25ns14e33/v1.0/HLT/V1",
+
+    "/frozen/2015/50ns_5e33/v3.4/HLT/V1",
+#    "/frozen/2015/50ns_5e33/v3.0/HLT/V2",
+    "/frozen/2015/50ns_5e33/v2.2/HLT/V2",
+    "/frozen/2015/50ns_5e33/v2.2/HLT/V1",
+    "/frozen/2015/50ns_5e33/v2.1/HLT/V5",
+    "/frozen/2015/50ns_5e33/v2.1/HLT/V3",
+    "/frozen/2015/50ns_5e33/v2.0/HLT/V3",
+    "/frozen/2015/50ns_5e33/v2.0/HLT/V2",
+    "/frozen/2015/50ns_5e33/v1.2/HLT/V2",
+    "/frozen/2015/50ns_5e33/v1.1/HLT/V2",
+    "/frozen/2015/50ns_5e33/v1.0/HLT/V3",
+    "/frozen/2015/50ns_5e33/v1.0/HLT/V1"
+    );
+
+# -- from http://fwyzard.web.cern.ch/fwyzard/hlt/2012/summary
+#         http://fwyzard.web.cern.ch/fwyzard/hlt/2011/summary
+#    (manual queries to cmswbm with runnumbers from json; to be replaced by list from cmsRun ...
+my @cdaqMenus = (
+    # -- 2015
+    "/cdaq/physics/firstCollisions15/v9.2/HLT/V12",
+    "/cdaq/physics/Run2015/5e33/v2.4/HLT/V2",
+    "/cdaq/physics/Run2015/5e33/v2.4/HLT/V4",
+    "/cdaq/physics/Run2015/5e33/v2.4/HLT/V15",
+    "/cdaq/physics/Run2015/5e33/v2.4/HLT/V22",
+    "/cdaq/physics/Run2015/5e33/v2.6/HLT/V9",
+    "/cdaq/physics/Run2015/25ns14e33/v3.3/HLT/V2",
+    "/cdaq/physics/Run2015/25ns14e33/v3.5/HLT/V3",
+    "/cdaq/physics/Run2015/25ns14e33/v3.5/HLT/V6",
+    "/cdaq/physics/Run2015/25ns14e33/v3.5/HLT/V7",
+    "/cdaq/physics/Run2015/25ns14e33/v4.2.3/HLT/V2",
+    "/cdaq/physics/Run2015/25ns14e33/v4.2.3/HLT/V5",
+    "/cdaq/physics/Run2015/25ns14e33/v4.2.4/HLT/V4",
+    "/cdaq/physics/Run2015/25ns14e33/v4.2.5/HLT/V2",
+    # -- 2012
+    "/cdaq/physics/Run2012/5e33/v4.4/HLT/V5",
+    "/cdaq/physics/Run2012/5e33/v4.4/HLT/V7",
+    "/cdaq/physics/Run2012/5e33/v4.5/HLT/V3",
+    "/cdaq/physics/Run2012/5e33/v4.6/HLT/V5",
+    "/cdaq/physics/Run2012/5e33/v4.7/HLT/V1",
+    "/cdaq/physics/Run2012/5e33/v4.8/HLT/V1",
+    "/cdaq/physics/Run2012/5e33/v4.10/HLT/V1",
+    "/cdaq/physics/Run2012/5e33/v4.11/HLT/V2",
+    "/cdaq/physics/Run2012/5e33/v4.12/HLT/V1",
+    "/cdaq/physics/Run2012/5e33/v4.13/HLT/V1",
+    "/cdaq/physics/Run2012/5e33/v4.14/HLT/V1",
+    "/cdaq/physics/Run2012/5e33/v4.16/HLT/V2",
+    "/cdaq/physics/Run2012/5e33/v4.16/HLT/V3",
+    "/cdaq/physics/Run2012/5e33/v4.16/HLT/V14",
+    "/cdaq/physics/Run2012/5e33/v4.16/HLT/V15",
+    "/cdaq/physics/Run2012/5e33/v4.16/HLT/V18",
+    "/cdaq/physics/Run2012/5e33/v4.16/HLT/V21",
+    "/cdaq/physics/Run2012/7e33/v2.1/HLT/V11",
+    "/cdaq/physics/Run2012/7e33/v2.1/HLT/V12",
+    "/cdaq/physics/Run2012/7e33/v2.1/HLT/V13",
+    "/cdaq/physics/Run2012/7e33/v2.2/HLT/V2",
+    "/cdaq/physics/Run2012/7e33/v2.2/HLT/V3",
+    "/cdaq/physics/Run2012/7e33/v2.3/HLT/V1",
+    "/cdaq/physics/Run2012/7e33/v2.3/HLT/V2",
+    "/cdaq/physics/Run2012/7e33/v2.3/HLT/V3",
+    "/cdaq/physics/Run2012/7e33/v2.3/HLT/V3",
+    "/cdaq/physics/Run2012/7e33/v2.4/HLT/V1",
+    "/cdaq/physics/Run2012/7e33/v2.5/HLT/V1",
+    "/cdaq/physics/Run2012/7e33/v3.0/HLT/V2",
+    "/cdaq/physics/Run2012/7e33/v3.0/HLT/V3",
+    "/cdaq/physics/Run2012/7e33/v3.0/HLT/V4",
+    "/cdaq/physics/Run2012/7e33/v3.0/HLT/V5",
+    "/cdaq/physics/Run2012/7e33/v3.1/HLT/V1",
+    "/cdaq/physics/Run2012/7e33/v3.1/HLT/V2",
+    "/cdaq/physics/Run2012/7e33/v4.0/HLT/V1",
+    "/cdaq/physics/Run2012/7e33/v4.0/HLT/V4",
+    "/cdaq/physics/Run2012/7e33/v4.1/HLT/V1",
+    "/cdaq/physics/Run2012PI/PilotRun/PIHLT/V2",
+    "/cdaq/physics/Run2012PI/PilotRun/PIHLT/V4",
+    "/cdaq/physics/Run2012/7e33/v4.2/HLT/V1",
+    "/cdaq/physics/Run2012/7e33/v4.2/HLT/V1",
+    "/cdaq/physics/Run2012/8e33/v1.0/HLT/V2",
+    "/cdaq/physics/Run2012/8e33/v1.1/HLT/V1",
+    "/cdaq/physics/Run2012/8e33/v1.2/HLT/V1",
+    "/cdaq/physics/Run2012/8e33/v1.2/HLT/V1",
+    "/cdaq/physics/Run2012/8e33/v2.0/HLT/V2",
+    "/cdaq/physics/Run2012/8e33/v2.0/HLT/V3",
+    "/cdaq/physics/Run2012/8e33/v2.1/HLT/V5",
+    "/cdaq/physics/Run2012/8e33/v2.1/HLT/V6",
+    "/cdaq/physics/Run2012/8e33/v2.1/HLT/V7",
+    # -- 2011
+    "/cdaq/physics/Run2011/5e32/v4.2/HLT/V2",
+    "/cdaq/physics/Run2011/5e32/v4.2/HLT/V5",
+    "/cdaq/physics/Run2011/5e32/v4.2/HLT/V6",
+    "/cdaq/physics/Run2011/5e32/v4.2/HLT/V7",
+    "/cdaq/physics/Run2011/5e32/v4.2/HLT/V8",
+    "/cdaq/physics/Run2011/5e32/v4.3/HLT/V3",
+    "/cdaq/physics/Run2011/5e32/v4.3/HLT/V4",
+    "/cdaq/physics/Run2011/5e32/v5.1/HLT/V3",
+    "/cdaq/physics/Run2011/5e32/v5.2/HLT/V2",
+    "/cdaq/physics/Run2011/5e32/v5.2/HLT/V5",
+    "/cdaq/physics/Run2011/5e32/v5.2/HLT/V6",
+    "/cdaq/physics/Run2011/5e32/v5.2/HLT/V7",
+    "/cdaq/physics/Run2011/5e32/v5.3/HLT/V1",
+    "/cdaq/physics/Run2011/5e32/v5.3/HLT/V2",
+    "/cdaq/physics/Run2011/5e32/v6.1/HLT/V1",
+    "/cdaq/physics/Run2011/5e32/v6.1/HLT/V3",
+    "/cdaq/physics/Run2011/5e32/v6.1/HLT/V5",
+    "/cdaq/physics/Run2011/5e32/v6.1/HLT/V6",
+    "/cdaq/physics/Run2011HI/2760GeV/v1.1/HLT/V1",
+    "/cdaq/physics/Run2011HI/2760GeV/v1.1/HLT/V3",
+    "/cdaq/physics/Run2011HI/2760GeV/v1.1/HLT/V4",
+    "/cdaq/physics/Run2011/5e32/v6.2/HLT/V2",
+    "/cdaq/physics/Run2011/5e32/v6.2/HLT/V3",
+    "/cdaq/physics/Run2011/5e32/v6.2/HLT/V4",
+    "/cdaq/physics/Run2011/5e32/v8.1/HLT/V5",
+    "/cdaq/physics/Run2011/5e32/v8.1/HLT/V6",
+    "/cdaq/physics/Run2011/5e32/v8.1/HLT/V8",
+    "/cdaq/physics/Run2011/5e32/v8.2/HLT/V3",
+    "/cdaq/physics/Run2011/5e32/v8.3/HLT/V2",
+    "/cdaq/physics/Run2011/5e32/v8.3/HLT/V3",
+    "/cdaq/physics/Run2011/5e32/v8.3/HLT/V4",
+    "/cdaq/physics/Run2011/1e33/v1.3/HLT/V2",
+    "/cdaq/physics/Run2011/1e33/v1.3/HLT/V6",
+    "/cdaq/physics/Run2011/1e33/v1.3/HLT/V7",
+    "/cdaq/physics/Run2011/1e33/v1.3/HLT/V12",
+    "/cdaq/physics/Run2011/1e33/v1.3/HLT/V13",
+    "/cdaq/physics/Run2011/1e33/v2.3/HLT/V1",
+    "/cdaq/physics/Run2011/1e33/v2.3/HLT/V3",
+    "/cdaq/physics/Run2011/1e33/v2.4/HLT/V2",
+    "/cdaq/physics/Run2011/1e33/v2.5/HLT/V1",
+    "/cdaq/physics/Run2011/1e33/v2.4/HLT/V4",
+    "/cdaq/physics/Run2011/1e33/v2.4/HLT/V5",
+    "/cdaq/physics/Run2011/1e33/v2.4/HLT/V6",
+    "/cdaq/physics/Run2011/1e33/v2.4/HLT/V8",
+    "/cdaq/physics/Run2011/1.4e33/v1.1/HLT/V1",
+    "/cdaq/physics/Run2011/1.4e33/v1.2/HLT/V1",
+    "/cdaq/physics/Run2011/1.4e33/v1.2/HLT/V3",
+    "/cdaq/physics/Run2011/2e33/v1.1/HLT/V1",
+    "/cdaq/physics/Run2011/2e33/v1.1/HLT/V2",
+    "/cdaq/physics/Run2011/2e33/v1.2/HLT/V1",
+    "/cdaq/physics/Run2011/2e33/v1.2/HLT/V4",
+    "/cdaq/physics/Run2011/2e33/v1.2/HLT/V5",
+    "/cdaq/physics/Run2011/2e33/v1.2/HLT/V5",
+    "/cdaq/physics/Run2011/2e33/v1.2/HLT/V7",
+    "/cdaq/physics/Run2011/3e33/v1.1/HLT/V1",
+    "/cdaq/physics/Run2011/3e33/v1.1/HLT/V3",
+    "/cdaq/physics/Run2011/3e33/v1.1/HLT/V4",
+    "/cdaq/physics/Run2011/3e33/v1.2/HLT/V1",
+    "/cdaq/physics/Run2011/3e33/v2.0/HLT/V4",
+    "/cdaq/physics/Run2011/3e33/v2.0/HLT/V7",
+    "/cdaq/physics/Run2011/3e33/v2.1/HLT/V1",
+    "/cdaq/physics/Run2011/3e33/v2.1/HLT/V2",
+    "/cdaq/physics/Run2011/3e33/v2.2/HLT/V3",
+    "/cdaq/physics/Run2011/3e33/v2.3/HLT/V2",
+    "/cdaq/physics/Run2011/3e33/v3.0/HLT/V2",
+    "/cdaq/physics/Run2011/3e33/v3.1/HLT/V1",
+    "/cdaq/physics/Run2011/3e33/v4.0/HLT/V2",
+    "/cdaq/physics/Run2011/3e33/v4.0/HLT/V3",
+    "/cdaq/physics/Run2011/3e33/v4.0/HLT/V5",
+    "/cdaq/physics/Run2011/3e33/v4.0/HLT/V6",
+    "/cdaq/physics/Run2011/3e33/v5.0/HLT/V1",
+    "/cdaq/physics/Run2011/5e33/v1.4/HLT/V3",
+    "/cdaq/physics/Run2011/5e33/v1.4/HLT/V4",
+    "/cdaq/physics/Run2011/5e33/v1.4/HLT/V5",
+    "/cdaq/physics/Run2011/5e33/v2.2/HLT/V2",
+    "/cdaq/physics/Run2011/5e33/v2.2/HLT/V4",
+    "/cdaq/physics/Run2011HI/v1.0/HIHLT/V2",
+    "/cdaq/physics/Run2011HI/v1.0/HIHLT/V3",
+    "/cdaq/physics/Run2011HI/v1.1/HIHLT/V1",
+    "/cdaq/physics/Run2011HI/v1.2/HIHLT/V2",
+    "/cdaq/physics/Run2011HI/v1.3/HIHLT/V1",
+    "/cdaq/physics/Run2011HI/v1.3/HIHLT/V5",
+    "/cdaq/physics/Run2011HI/v1.4/HIHLT/V1",
+    "/cdaq/physics/Run2011HI/v1.6/HIHLT/V1",
+    "/cdaq/physics/Run2011HI/v1.6/HIHLT/V2",
+    "/cdaq/physics/Run2011HI/v1.7/HIHLT/V1"
+    );
+
+
+#my @menus = reverse @frozenMenus;
+#my $command = $commandFrozen;
+
+my @menus = @cdaqMenus;
+my $command = $commandCdaq;
+
+# %%%%%%%%%%%%%%
+# -- cmsRun part
+# %%%%%%%%%%%%%%
+if ($opt_a) {
+    my $file = "";
+    foreach $menu (@menus) {
+	if ($opt_s && ($menu ne $opt_s)) {
+	    next;
+	}
+	($file = "menu".$menu) =~ s%/%__%g;
+	print "$command $menu > $file\n";
+	system("$command $menu > $file");
+    }
+    exit(0);
+}
+
+
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# -- call this for a selection of PD
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+if ($opt_B) {
+    $pdlist = `$ENV{BMMBASE}/perl/pdTriggers -b`;
+    @pd = split(/\n/, $pdlist);
+    foreach (@pd) {
+	system("$ENV{BMMBASE}/perl/pdTriggers -p $_");
+    }
+
+    print "\n";
+    exit(0);
+}
+
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%
+# -- Analysis of ASCII files
+# %%%%%%%%%%%%%%%%%%%%%%%%%%
+my  %pdmenu = ();
+tie %pdmenu, "Tie::IxHash";
+
+my  %pdTrigger = ();
+tie %pdTrigger, "Tie::IxHash";
+
+
+my  %cumulativeTriggers = ();
+tie %cumulativeTriggers, "Tie::IxHash";
+
+# -- set up %pdmenu that contains all PD and trigger menus
+my $file = "";
+foreach $menu (@menus) {
+    if ($opt_s && ($menu ne $opt_s)) {
+	next;
+    }
+    ($file = "menu".$menu) =~ s%/%__%g;
+    open(IN, "$file") || die "cannot open $file\n";
+    # -- go to pdmenu definition:
+    while (<IN>) {
+	if (/process.datasets/) {
+	    last;
+	}
+    }
+    readPD(IN, $menu);
+    close(IN);
+}
+
+
+my  %menus = ();
+tie %menus, "Tie::IxHash";
+foreach $key (keys %pdmenu) {
+    ($pd, $menu) = split(/:/, $key);
+    $menus{$menu} = 1;
+    $pds{$pd} = 1;
+}
+
+
+if ($opt_b) {
+    foreach (keys %pds) {
+	print "$_\n";
+    }
+    exit(0);
+}
+
+
+if ($opt_c) {
+    foreach (keys %menus) {
+	print "$_\n";
+    }
+    exit(0);
+}
+
+# -- print all triggers in PD $opt_p
+if ($opt_p) {
+    my $oldmenu = "";
+    my $old     = "";
+    foreach $key (keys %pdmenu) {
+	($pd, $menu) = split(/:/, $key);
+	#print "$key -> pd = $pd, menu = $menu\n** $pdmenu{$key}\n** $old\n\n";
+	if ($pd ne $opt_p) {next;}
+	if ($menu ne $oldmenu) {
+	    @vMenu = split(/,/, $pdmenu{$key});
+	    @vOld = split(/,/, $old);
+	    %adiff = newVsOld(\@vMenu, \@vOld);
+	    $old = $pdmenu{$key};
+
+	    ($line = $pdmenu{$key}) =~ s/,/\n/g;
+	    ($pd = $key) =~ s/:.*$//g;
+	    print "******** $key ********\n";
+	    foreach $dkey (keys %adiff) {
+		#print "adiff: $dkey = $adiff{$dkey}\n";
+		if ($adiff{$dkey} == 1) {
+		    print "added $dkey \n";
+		    $cumulativeTriggers{$pd} .= "$dkey\n";
+		} elsif ($adiff{$dkey} == 2) {
+		    print "removed $dkey \n";
+		}
+	    }
+
+	    $oldmenu = $menu;
+	}
+    }
+
+    foreach $key (keys %cumulativeTriggers) {
+	open(OUT, ">$key.triggers") || die "cannot open $key.triggers\n";
+	print OUT "# ***************************************************************\n";
+	print OUT "# $key cumulative trigger list from trigger menus:\n";
+	foreach (keys %menus) {
+	    print OUT "# $_\n";
+	}
+
+	print OUT "# ***************************************************************\n";
+	print OUT "$cumulativeTriggers{$key}";
+	close OUT;
+    }
+}
+
+
+
+
+exit(0);
+
+# ----------------------------------------------------------------------
+sub readPD() {
+    ($in, $lmenu) = @_;
+    my $hlts = "";
+    my $name = "";
+    my $fullName = "";
+    while (42) {
+	$line = <$in>;
+	if ($line =~ /^\)/) {
+	    last;
+	}
+	if ($line =~ /=/) {
+	    ($name, $rest) = split(/=/, $line);
+	    $name =~ s/\s*//g;
+	    $rest =~ /'(.*)'/;
+	    $hlt = $1;
+	} else {
+	    $line =~ /'(.*)'/;
+	    $hlt = $1;
+	}
+	$hlt =~ s/_v[0-9]*$//g;
+	if ($opt_t) {
+	    if ($hlt =~ $opt_t) {
+		$hlts = $hlts . $hlt . ",";
+	    }
+	} else {
+	    $hlts = $hlts . $hlt . ",";
+	}
+
+	if ($line =~ /\),/) {
+	    $hlts =~ s/,$//g;
+	    if (grep /$name/, @skipPD) {
+		#print "found $name in skipPD, skipping\n";
+	    } else {
+		$fullName = $name . ":" . $menu;
+		if ($opt_p) {
+		    if ($name eq $opt_p) {
+			$pdmenu{$fullName} = $hlts;
+		    }
+		} else {
+		    $pdmenu{$fullName} = $hlts;
+		}
+	    }
+	    $hlts = "";
+	    $name = "";
+	}
+    }
+}
+
+
+# ----------------------------------------------------------------------
+sub splitIntoArray() {
+    ($in) = @_;
+    return
+}
+
+# ----------------------------------------------------------------------
+sub newVsOld {
+    my ($array1, $array2) = @_;
+
+    my @array1 = @{$array1};
+    my @array2 = @{$array2};
+
+    #print "size array1: $#array1\n";
+    #print "size array2: $#array2\n";
+
+    my %count = ();
+    foreach (@array1) {
+	$count{$_} = 1;
+    };
+    foreach (@array2) {
+	if ($count{$_} == 1) {
+	    #print "$_ already in array1\n";
+	    $count{$_} = 3;
+	} else {
+	    #print "** $_ not in array1\n";
+	    $count{$_} = 2;
+	}
+    }
+    return %count;
+}

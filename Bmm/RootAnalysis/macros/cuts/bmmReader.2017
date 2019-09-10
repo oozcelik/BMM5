@@ -1,0 +1,8 @@
+#candAnaMuMu         cuts/candAnaMuMu.nopreselection.cuts
+#candAnaBu2JpsiK     cuts/candAnaBu2JpsiK.nopreselection.cuts
+#candAnaMuMu         cuts/candAnaMuMu.cuts
+candAnaBu2JpsiK     cuts/candAnaBu2JpsiK.cuts
+candAnaMuMu          cuts/candAnaMuMu.cuts
+#
+JSON                ../common/json/Cert_294927-306462_13TeV_EOY2017ReReco_Collisions17_JSON.txt
+DSNAME              Charmonium

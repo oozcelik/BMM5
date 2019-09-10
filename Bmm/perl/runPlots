@@ -1,0 +1,311 @@
+#!/usr/bin/perl
+# ----------------------------------------------------------------------
+# runPlots  run sonmething for all years  or for specific setup testing
+# =======
+#
+# Usage examples
+# ==============
+#
+# $BMMBASE/perl/runPlots -s 1 -y 2016BF -x  s01 -d
+# $BMMBASE/perl/runPlots -s 2 -y 2011 -x s01 -p results -m bdt
+# $BMMBASE/perl/runPlots -s 3  -x s01 -p results -m ana
+# $BMMBASE/perl/runPlots -s 2 -x 04 -d
+# $BMMBASE/perl/runPlots -s 4 -x s00 -d
+# $BMMBASE/perl/runPlots -s 5 -x s00 -p results -m bdt
+# $BMMBASE/perl/runPlots -s 6 -x default -d
+# $BMMBASE/perl/runPlots -p overlays -m bdtopt -x 04 -d
+# ----------------------------------------------------------------------
+# Send all questions, wishes and complaints to the
+#
+# Author    Urs Langenegger <urslangenegger@gmail.com>
+# ----------------------------------------------------------------------
+use lib "$ENV{BMMBASE}/perl/modules/Tie-IxHash-1.23/lib";
+use Tie::IxHash;
+
+use Getopt::Std;
+getopts('c:dp:m:n:s:t:y:x:');
+
+my @years = ("2011", "2012"
+	     , "2016BF-00", "2016GH-00"
+	     , "2016BF-01", "2016GH-01"
+	     , "2016BF-02", "2016GH-02"
+	     , "2016BF-03", "2016GH-03"
+	     , "2016BF-04", "2016GH-04"
+	     , "2016BF-05", "2016GH-05" # scaled MC
+	     , "2016BF-06", "2016GH-06" # scaled MC #2
+	     , "2016BF-07", "2016GH-07" # scaled MC #3
+	     , "2016BF-08", "2016GH-08" # scaled MC #4
+	     , "2016BF-10", "2016GH-10" # BDT 1 on no-BS
+	     , "2016BF-11", "2016GH-11" # BDT 2 on no-BS
+	     , "2016BF-12", "2016GH-12" # BDT 3 on no-BS
+	     , "2016BF-13", "2016GH-13" # BDT 4 on no-BS
+	     , "2016BF-14", "2016GH-14" # BDT 5 on no-BS
+	     , "2016BF-20", "2016GH-20" # BDT 219 retrained with scaled signal MC
+    );
+
+my $optp = "";
+if ($opt_p) {
+    $optp = "-p $opt_p";
+}
+
+my $optm = "";
+if ($opt_m) {
+    $optm = "-m $opt_m";
+}
+
+# -- time to wait before checking again
+my $optt = 20;
+if ($opt_t) {
+    $optt = $opt_t;
+}
+
+# -- how many jobs in parallel
+my $optn = 8;
+if ($opt_n) {
+    $optn = $opt_n;
+}
+
+my $optx = "";
+if ($opt_x) {
+    $optx = "-d $opt_x";
+}
+
+# -- for single directory per era: do all the time-consuming stuff in one go
+if (1 == $opt_s) {
+    #if (!$opt_c) {
+    #	die "must specify cuts file!\n";
+    #}
+    if (!$opt_x) {
+	die "must specify directory!\n";
+    }
+    $dir = $opt_x;
+    $year = $opt_y;
+    $setup = $year;
+    $setup = $year.$dir; # if you need the directory as part of the identifier in the LaTeX files as well
+
+    $command = "bin/runPlot -y $year -d $dir -s $setup -c baseCuts.$year$dir.cuts -f plotResults.$year$dir.files -p results -m ana  >& $dir/results-ana-$year$dir.log &";
+    print "$command\n";
+    if (!$opt_d) {system($command);}
+    $command = "bin/runPlot -y $year -d $dir -s $setup -c baseCuts.$year$dir.cuts -f plotResults.$year$dir.files -p overlays -m bdtopt  >& $dir/overlays-bdtopt-$year$dir.log &";
+    print "$command\n";
+    if (!$opt_d) {system($command);}
+    ($numyear = $year) =~ s/[A-Z]*//g;
+    if ($numyear > 2015) {
+	$command = "bin/runPlot -y $year -d $dir -s $setup -c baseCuts.$year$dir.cuts -f plotResults.$year$dir.files -p bdt -m all  >& $dir/bdt-all-$year$dir.log &";
+	print "$command\n";
+	if (!$opt_d) {system($command);}
+    }
+    exit(0);
+}
+
+
+# -- run one year in one directory
+if (2 == $opt_s) {
+    #if (!$opt_c) {
+    #	die "must specify cuts file!\n";
+    #}
+    if (!$opt_x) {
+	die "must specify directory!\n";
+    }
+
+    $dir  = $opt_x;
+    $year = $opt_y;
+
+    $setup = $year;
+    $setup = $year.$dir; # if you need the directory as part of the identifier in the LaTeX files as well
+
+    $command = "bin/runPlot -y $year -d $dir -s $setup -c baseCuts.$year$dir.cuts -f plotResults.$year$dir.files $optp $optm  >& $dir/$opt_p-$opt_m-$year$dir.log &";
+    print "$command\n";
+    if (!$opt_d) {system($command);}
+    exit(0);
+}
+
+# -- run all years for the same in one directory
+if (3 == $opt_s) {
+    my @years = ("2011", "2012" , "2016BF", "2016GH");
+
+    foreach $year (@years) {
+	$dir  = $opt_x;
+	if (($opt_p eq "fake") && ($year eq "2016GH")) {
+	    next;
+	}
+	$setup = $year;
+	$setup = $year.$dir; # if you need the directory as part of the identifier in the LaTeX files as well
+
+	$command = "bin/runPlot -y $year -d $dir -s $setup -c baseCuts.$year$dir.cuts -f plotResults.$year$dir.files $optp $optm  >& $dir/$opt_p-$opt_m-$year$dir.log &";
+	print "$command\n";
+	if (!$opt_d) {system($command);}
+    }
+    exit(0);
+}
+
+# -- for predefined list of jobs: do all the time-consuming stuff in one go
+if (6 == $opt_s) {
+    foreach $idir (@years) {
+	$dir = $idir;
+	if ($opt_x eq "default") {
+	    if (($idir eq "2011")
+		|| ($idir eq "2012")
+		|| ($idir eq "2016BF-00")
+		|| ($idir eq "2016GH-00")
+		) {
+		# do nothing, in particular do not skip!
+	    } else {
+		next;
+	    }
+	} elsif ($opt_x && !($dir =~ /$opt_x/)) {
+	    next;
+	}
+	($year = $idir) =~ s/-[0-9]{2}//g;
+	$command = "bin/runPlot -y $year -d $dir -s $dir -p overlays -m  bdtopt  >& $dir/overlays-bdtopt.log &";
+	print "$command\n";
+	if (!$opt_d) {system($command);}
+	$command = "bin/runPlot -y $year -d $dir -s $dir -p results -m fill  >& $dir/results-fill.log &";
+	print "$command\n";
+	if (!$opt_d) {system($command);}
+#	$command = "bin/runPlot -y $year -d $dir -p bdt -m all -s $setup >& $dir/bdt-all.log &";
+#	print "$command\n";
+#	if (!$opt_d) {system($command);}
+    }
+    exit(0);
+}
+
+
+# -- run the analysis afterwards (including BDT scan)
+if (33 == $opt_s) {
+    foreach $idir (@years) {
+	$dir = $idir;
+	if ($opt_x eq "default") {
+	    if (($idir eq "2011")
+		|| ($idir eq "2012")
+		|| ($idir eq "2016BF-00")
+		|| ($idir eq "2016GH-00")
+		) {
+		# do nothing, in particular do not skip!
+	    } else {
+		next;
+	    }
+	} elsif ($opt_x && !($dir =~ /$opt_x/)) {
+	    next;
+	}
+	($year = $idir) =~ s/-[0-9]{2}//g;
+	($setup = $idir) =~ s/$year//g;
+	$command = "bin/runPlot -y $year -d $dir -s $dir -p results -m bdt  >& $dir/results-bdtoptplot.log &";
+	print "$command\n";
+	if (!$opt_d) {system($command);}
+    }
+    exit(0);
+}
+
+
+# -- for single directory for both eras: do all the time-consuming stuff in one go
+if (4 == $opt_s) {
+    #if (!$opt_c) {
+    #	die "must specify cuts file!\n";
+    #}
+    if (!$opt_x) {
+	die "must specify directory!\n";
+    }
+    my @years = ("2016BF", "2016GH");
+
+    $dir = $opt_x;
+
+    foreach $era (@years) {
+	($year = $era) =~ s/-[0-9]{2}//g;
+	$command = "bin/runPlot -y $year -d $dir -s $era$dir -c baseCuts.$era$dir.cuts -p results -m ana  >& $dir/results-$era-ana.log &";
+	print "$command\n";
+	if (!$opt_d) {system($command);}
+	$command = "bin/runPlot -y $year -d $dir -s $era$dir -c baseCuts.$era$dir.cuts -p overlays -m all  >& $dir/overlays-$era-all.log &";
+	print "$command\n";
+	if (!$opt_d) {system($command);}
+	$command = "bin/runPlot -y $year -d $dir -s $era$dir -c baseCuts.$era$dir.cuts -p bdt -m all  >& $dir/bdt-$era-all.log &";
+	print "$command\n";
+	if (!$opt_d) {system($command);}
+    }
+    exit(0);
+}
+
+
+# -- for single directory for both eras: do one aspect in one go
+if (5 == $opt_s) {
+    #if (!$opt_c) {
+    #	die "must specify cuts file!\n";
+    #}
+    if (!$opt_x) {
+	die "must specify directory!\n";
+    }
+    my @years = ("2016BF", "2016GH");
+
+    $dir = $opt_x;
+
+    foreach $era (@years) {
+	($year = $era) =~ s/-[0-9]{2}//g;
+	$command = "bin/runPlot -y $year -d $dir -s $era$dir -c baseCuts.$era$dir.cuts $optp $optm  >& $dir/results-$era-$opt_p-$opt_m.log &";
+	print "$command\n";
+	if (!$opt_d) {system($command);}
+    }
+    exit(0);
+}
+
+
+if (12 == $opt_s) {
+    my @list12 = (
+	"GH-2069",
+	"BF-10719",
+	"GH-10259",
+	"BF-10259",
+	);
+    my @oldlist12 = (
+	"GH-1079",
+	"GH-3069",
+	"GH-4829"
+	);
+    foreach $idir (@list12) {
+	$dir = "results-" . $idir;
+	$command = "bin/runPlot -y 2016GH -d se -p overlays -m dbxplot -s $idir >& /dev/null &";
+	print "$command\n";
+	system($command);
+	$njobs = countRunningJobs("dbxplot");
+	print "njobs running: $njobs\n";
+	while ($njobs > $optn) {
+	    print "sleep for $optt before testing again\n";
+	    sleep($optt);
+	    $njobs = countRunningJobs("dbxplot");
+	    print "njobs running: $njobs\n";
+	}
+    }
+    exit(0);
+}
+
+# -- default: run something for all years
+my $log = "";
+if ($optd ne "") {
+    $log = "-$opt_x";
+}
+foreach $year (@years) {
+    $dir = $year;
+    ($year = $dir) =~ s/-[0-9]{2}//g;
+    if ($opt_x && !($dir =~ /$opt_x/)) {
+	next;
+    }
+    $command = "bin/runPlot -y $year -d $dir -s $dir -c baseCuts.$year.cuts $optp $optm  >& $dir/runPlots$log-$opt_p-$opt_m-$year.log &";
+    print "$command\n";
+    if (!$opt_d) {system($command);}
+}
+
+
+
+# ----------------------------------------------------------------------
+sub countRunningJobs() {
+    ($jobname) = @_;
+    print "ps -fu ursl | /bin/grep $jobname | wc\n";
+    $line = `ps -fu ursl | /bin/grep runPlot | /bin/grep $jobname | wc`;
+    chop($line);
+    print "line ->$line<-\n";
+    $line =~ s/\s{2,99}/:/g;
+    $line =~ s/^://;
+    ($n, $nw, $nl) = split(/:/, $line, 3);
+    $n -= 1;
+    print "n = ->$n<- \n";
+    return $n;
+}

@@ -1,0 +1,180 @@
+#!/usr/bin/perl
+
+# ----------------------------------------------------------------------
+#
+# runCont  run in the background and allow for continuous job submission for short jobs
+# =======
+#
+# Usage examples
+# ==============
+#
+# $BMMBASE/perl/runCont -n 200 -c '/bin/tcsh  ' c-* >& runCont.log &
+# $BMMBASE/perl/runCont -n 200 allJobs >& runCont.log &
+#
+#
+# $BMMBASE/perl/runAll -t /shome/ursl/bmm4/CMSSW_8_0_29/180226-v11.tar.gz -s bmmCharmonium2016H -e -C -q 'local -b' -d > ! crashedH
+# $BMMBASE/perl/runCont -n 5 -l 2016H crashed? > & runCont-crashed.log &
+# $BMMBASE/perl/runCont -n 8 -l bmm-data crashedG >& runCont-crashedG.log
+#
+# Create the jobs files based on a template c-20 as follows:
+#
+# do -f 21 -l 25 -c 'cp c-20 c-$n; perl -pi -e "s/BuToJpsiKp20/BuToJpsiKp$n/g" c-$n'
+#
+# ----------------------------------------------------------------------
+# Send all questions, wishes and complaints to the
+#
+# Author    Urs Langenegger <urslangenegger@gmail.com>
+# ----------------------------------------------------------------------
+
+use lib "$ENV{BMMBASE}/perl/modules/Tie-IxHash-1.23/lib";
+use Tie::IxHash;
+
+use Getopt::Std;
+getopts('c:dl:n:w:');
+
+
+my $USER = $ENV{USER};
+my $siesta = 600;
+
+print "runCont($$): @ARGV\n";
+print "to stop:     touch STOP.$$\n";
+print "to suspend:  touch WAIT.$$\n";
+
+
+if ($opt_c) {
+    @jobs = @ARGV;
+    foreach $job (@jobs) {
+	$datum = `date`;
+	chop($datum);
+	&checkUser($datum);
+	if ($opt_n) {
+	    $njobs = &countPending;
+	    $datum = `date`;
+	    chop($datum);
+	    print "runCont($$): $njobs jobs waiting at $datum\n";
+	    while ($njobs > $opt_n) {
+		sleep($siesta);
+		$datum = `date`;
+		chop($datum);
+		&checkUser($datum);
+		$njobs = &countPending;
+		$datum = `date`;
+		chop($datum);
+		print "runCont($$): $njobs jobs waiting at $datum\n";
+	    }
+	}
+
+	if ($opt_d) {
+	    print "$opt_c $job\n";
+	} else {
+	    print "runCont($$): submitting $opt_c $job\n";
+	    system("$opt_c $job");
+	}
+
+	if ($opt_w) {
+	    sleep($opt_w);
+	}
+
+    }
+    print "This is the end, my friend\n";
+    exit(0);
+}
+
+
+# -- below is for direct job submission (reading job submission lines individually from file[s])
+@jobfiles = @ARGV;
+my @jobs;
+foreach $jf (@jobfiles) {
+    print "read jobs from $jf\n";
+    open(FH, "$jf") || die "Cannot open $jf\n";
+    while (<FH>) {
+	push(@jobs, $_);
+    }
+    close(FH);
+}
+foreach $j (@jobs) {
+    $datum = `date`;
+    chop($datum);
+    &checkUser($datum);
+    if ($opt_n) {
+	$njobs = &countPending;
+	$datum = `date`;
+	chop($datum);
+	if ($opt_l) {
+	    print "runCont($$): $njobs jobs running at $datum\n";
+	} else {
+	    print "runCont($$): $njobs jobs waiting at $datum\n";
+	}
+	while ($njobs > $opt_n) {
+	    sleep($siesta);
+	    &checkUser($datum);
+	    $njobs = &countPending;
+	    $datum = `date`;
+	    chop($datum);
+	    if ($opt_l) {
+		print "runCont($$): $njobs jobs ($opt_l) running at $datum\n";
+	    } else {
+		print "runCont($$): $njobs jobs waiting at $datum\n";
+	    }
+	}
+    }
+
+    if ($opt_d) {
+	print "would submit: $j\n";
+    } else {
+	print "runCont($$): submitting: $j\n";
+	system("$j");
+    }
+
+    if ($opt_w) {
+	sleep($opt_w);
+    }
+
+}
+
+print "This is the end, my friend\n";
+exit(0);
+
+
+
+
+
+# ----------------------------------------------------------------------
+sub countPending() {
+    if ($opt_l) {
+	$jobname = $opt_l;
+	# print "ps -fu ursl  | /bin/grep csh | /bin/grep $jobname | wc\n";
+	$line = `ps -fu ursl  | /bin/grep csh | /bin/grep $jobname | wc`;
+	chop($line);
+	# print "line ->$line<-\n";
+	$line =~ s/\s{2,99}/:/g;
+	$line =~ s/^://;
+	($n, $nw, $nl) = split(/:/, $line, 3);
+	# print "n = ->$n<- \n";
+	return $n;
+    } else {
+	$n = `qstat -s p -u $USER | wc -l `;
+	chop($n);
+	# print "n = ->$n<- \n";
+	return $n;
+    }
+}
+
+# ----------------------------------------------------------------------
+sub checkUser() {
+    ($ldatum) = @_;
+    # -- bail out in case of STOP file
+    if (-e "STOP.$$") {
+	unlink("STOP.$$");
+	print "runCont($$): saw STOP.$$ at $ldatum, exit\n";
+	exit(0);
+    }
+    # -- wait 1h in case of WAIT file
+    while (-e "WAIT.$$") {
+	$datum = `date`;
+	chop($datum);
+	print "runCont($$): watching WAIT.$$ at $ldatum\n";
+	sleep(3600);
+    }
+
+}

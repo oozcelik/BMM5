@@ -1,0 +1,12 @@
+# -- B+
+#type=bupsik,data        lumi=36.7          file=/scratch/oozcelik/bmm5/v01/bmm-data-CharmoniumAll2017.root
+#type=bupsik,mcComb        lumi=36.7           file=Bu2JpsiKstar_MC2017_2.bmmReader.mix-Bu2JpsiK.root
+#type=bupsik,data        lumi=36.7           file=outputB.root
+#type=bupsik,mcOff      bf=(6.12,0.19)e-5  eff=(2.1,0.01)e-2 file=/scratch/oozcelik/bmm5/v01/bmm-mc-RunIIFall17-BuToJpsiK_BMuonFilter-PU2017.root
+type=bupsik,data        lumi=10.          file=test_Data.root 
+type=bupsik,mcComb      bf=(6.12,0.19)e-5  eff=(2.1,0.01)e-2 file=test_MC.root 
+# -- fake
+#type=fake,data               lumi=36.7  file=/t3home/ursl/bmm4/CMSSW_9_2_7/src/Bmm/RootAnalysis/macros/cbmm-data-bmmMuOnia2012B-v06.bmmReader.2012.fake.root
+#type=fake,mc                 lumi=36.7  file=/t3home/ursl/bmm4/CMSSW_9_2_7/src/Bmm/RootAnalysis/macros/bmm-mc-Winter17_private-BsToKK-v06-0000.bmmReader.fakeMC.root
+type=bsmm,mc                 lumi=36.7  file=/scratch/oozcelik/Bs2MuMu_MC2017_9.root
+type=bsmm,data                 lumi=36.7  file=/scratch/oozcelik/store/user/oozcelik/bmm5/runBmm/Charmonium_2017/cb2mmDataC-196.root
