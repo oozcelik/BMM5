@@ -162,15 +162,12 @@ plotReducedOverlays::plotReducedOverlays(string dir, string files, string cuts, 
   }
 
 
-  if (0) {
+  if (1) {
     // Trigger 
 
-    fChannelList.push_back("0wtrig");
-
-    fChannelList.push_back("0wotrig");    
 
     // -- small N(PV)
-/*    fChannelList.push_back("0lopu");
+    fChannelList.push_back("0lopu");
     //  fChannelList.push_back("1lopu");
 
     // -- high N(PV)
@@ -178,7 +175,7 @@ plotReducedOverlays::plotReducedOverlays(string dir, string files, string cuts, 
     //  fChannelList.push_back("1hipu");
 
     // -- small fls3d
-    fChannelList.push_back("0sfl");
+/*    fChannelList.push_back("0sfl");
     //  fChannelList.push_back("1sfl");
 
     // -- big fls3d
@@ -371,12 +368,10 @@ void plotReducedOverlays::makeAll(string what) {
      if (1) {
     // -- data vs combined MC
 //    makeSampleOverlay("bmmData", "bdmmMcComb");
-    makeSampleOverlay("bupsikData", "bupsikMcOff", 1000);
-//    overlay2Files("plotSbsHistograms-2017.root", "bupsikMcOff", "ad0wtrigbdt", "Presel",
-  //                "plotSbsHistograms-2017.root", "bupsikMcOff", "ad0wotrigbdt", "Presel");
-/*    overlay2Files("plotSbsHistograms-2017.root", "bupsikData", "ad0lopubdt", "Presel",
+    makeSampleOverlay("bupsikData", "bupsikMcOff");
+    overlay2Files("plotSbsHistograms-2017.root", "bupsikData", "ad0lopubdt", "Presel",
                   "plotSbsHistograms-2017.root", "bupsikData", "ad0hipubdt", "Presel");
-    overlay2Files("plotSbsHistograms-2017.root", "bupsikData", "ad0ldzbdt", "Presel",
+/*    overlay2Files("plotSbsHistograms-2017.root", "bupsikData", "ad0ldzbdt", "Presel",
                   "plotSbsHistograms-2017.root", "bupsikData", "ad0sdzbdt", "Presel");*/
     }
    return;
@@ -999,18 +994,7 @@ void plotReducedOverlays::loopFunction1() {
     fillDistributions("bdt");
 
 
-/*    if (0 == fChan) {
-
-     if (wTrig) {
-        fChannel = Form("%dwtrig", fChan);
-        if (fDoCNC) fillDistributions("cnc");
-        fillDistributions("bdt");
-      }
-      if (woTrig) {
-        fChannel = Form("%dwotrig", fChan);
-        if (fDoCNC) fillDistributions("cnc");
-        fillDistributions("bdt");
-      }
+    if (0 == fChan) {
 
       if (loPU) {
       	fChannel = Form("%dlopu", fChan);
@@ -1022,8 +1006,9 @@ void plotReducedOverlays::loopFunction1() {
 	if (fDoCNC) fillDistributions("cnc");
 	fillDistributions("bdt");
       }
+    }
 
-      if (sfl) {
+/*      if (sfl) {
       	fChannel = Form("%dsfl", fChan);
 	if (fDoCNC) fillDistributions("cnc");
 	fillDistributions("bdt");
@@ -1984,30 +1969,6 @@ void plotReducedOverlays::fillDistributions(string selmode) {
 
   string mapname = Form("ad%s%s_%s", fChannel.c_str(), selmode.c_str(), fSample.c_str());
 
-
- cout << "fillDistributions: mapname = " << mapname << " event no: " <<  fb.evt << " and the track no: " << fb.pvntrk << endl;
-
- double dt, mct; 
- 
-
- if (string::npos != fSample.find("Data"))  ndtrks.push_back(fb.pvntrk); 
- if (string::npos != fSample.find("Mc"))    nmctrks.push_back(fb.pvntrk);
- 
-
- if(nmctrks.size()>0 && ndtrks.size()>0){
-   for (int i=0; i<nmctrks.size(); i++){ //1842
-   if(i = nmctrks.size()-1)
-  	cout << "mapname " << mapname << " and event no " << fb.evt << " i. " << i << " ndtrks size " << ndtrks.size() << " n data tracks " << ndtrks[i] << " nmctrks.size " << nmctrks.size() << " with variable " << nmctrks[i] << " ratio " << ndtrks[i]/nmctrks[i] << endl;
-//      cout << " data " << ndtrks[i] << " mc " << nmctrks[i] << " ratio " << ndtrks[i]/nmctrks[i] << endl;
-   }
- } 
-
-  
-
-//  cout << " fSample.c_str() " << fSample.c_str() << " event " << fb.evt << " number of tracks " << fb.pvntrk << endl;
-
-  
-
   double mass = fb.cm;
   if (fIsMC) mass = fb.m;
   if (fIsSignal) mass = fb.m;
@@ -2015,60 +1976,6 @@ void plotReducedOverlays::fillDistributions(string selmode) {
 
   double w8 = fb.corrW8;
   //  cout << "w8: " << w8 << " (run: " << fb.run << ")" << endl;
-
-/*  string sname = string(h1->GetName());
-  string hname = string(h2->GetName());
-  int binx = h1->GetXaxis()->GetNbins();
-  int binxh2 = h2->GetXaxis()->GetNbins();
-  float binContent[binx], binContent2[binx], weighted[binx], ratio[binx], binerror[binx], binerror2[binx];
-  
- cout << " AAAAAAAAAAAA " << sname << " ------------------- " << hname << endl;
-
-  if (string::npos != sname.find("Data")) {
-          for (int i = 0; i< binx; i++){
-                  if(string::npos != sname.find("pvntrk")) ndtrks.push_back(h1->GetBinContent(i));
-                  binContent[i] = h1->GetBinContent(i);
-                  binerror[i] = h1->GetBinError(i);
-                  cout << binContent[i] << " and " << binerror[i] << endl;
-          }
-  }
-  else if(string::npos != sname.find("Mc")){
-          for (int i = 0; i< binx; i++){
-                  if(string::npos != sname.find("pvntrk")) nmctrks.push_back(h1->GetBinContent(i));
-                  binContent[i] = h1->GetBinContent(i);
-                  binerror[i] = h1->GetBinError(i);
-          }
-  }
-  if (string::npos != hname.find("Data")) {
-          for (int i = 0; i< binx; i++){
-                  if(string::npos != sname.find("pvntrk")) ndtrks.push_back(h2->GetBinContent(i));
-                  binContent2[i] = h2->GetBinContent(i);
-                  binerror2[i] = h2->GetBinError(i);
-                  cout << binContent2[i] << " and " << binerror2[i] << endl;
-          }
-  }
-  else if (string::npos != hname.find("Mc")){
-          for (int i = 0; i< binx; i++){
-                  if(string::npos != sname.find("pvntrk")) nmctrks.push_back(h2->GetBinContent(i));
-                  binContent2[i] = h2->GetBinContent(i);
-                  binerror2[i] = h2->GetBinError(i);
-                  cout << binContent2[i] << " and " << binerror2[i] << endl;
-          }
-  }
-
-  cout << " BBBBBBBBBB " << binx << " " << binxh2 << " " << ndtrks.size() << endl;
-  for(int x  =0; x< ndtrks.size(); x++){
-      if (string::npos != sname.find("Presel") && string::npos != hname.find("Presel")){
-          weighted[x] = ndtrks[x]/nmctrks[x];
-          binerror[x] = weighted[x];
-          binerror2[x] = binerror[x];
-          if (ratio[x]==0 || binContent[x]==0 || ndtrks[x]==0 || nmctrks[x]==0 || weighted[x]==0) continue;
-          cout << " sname " << sname << " hname " << hname << " " << binContent[x] << " " << ratio[x] << " " << weighted[x] << endl;
-          if (string::npos != sname.find("Data")) h1->Fill(binContent[x], binerror[x]);
-          else h2->Fill(binContent2[x], binerror2[x]);
-      }
-  } */
-
 
   TLorentzVector a;
   a.SetPtEtaPhiM(fb.pt, fb.eta, fb.phi, mass);
@@ -2268,62 +2175,6 @@ AnalysisDistribution* plotReducedOverlays::bookDistribution(string hn, string ht
   return p;
 }
 
-void plotReducedOverlays::weight(TH1D *h1, TH1D *h2){
-
-  string sname = string(h1->GetName());
-  string hname = string(h2->GetName());
-  int binx = h1->GetXaxis()->GetNbins();
-  int binxh2 = h2->GetXaxis()->GetNbins();
-  float binContent[binx], binContent2[binx], weighted[binx], ratio[binx], binerror[binx], binerror2[binx];
-  
-
-  if (string::npos != sname.find("Data")) {
-	  for (int i = 0; i< binx; i++){
-		  if(string::npos != sname.find("pvntrk")) ndtrks.push_back(h1->GetBinContent(i));
-		  binContent[i] = h1->GetBinContent(i);
-                  binerror[i] = h1->GetBinError(i);
-	  }
-  }
-  else if(string::npos != sname.find("Mc")){
-	  for (int i = 0; i< binx; i++){
-		  if(string::npos != sname.find("pvntrk")) nmctrks.push_back(h1->GetBinContent(i));
-		  binContent[i] = h1->GetBinContent(i);
-                  binerror[i] = h1->GetBinError(i);
-	  }
-  }
-
-  if (string::npos != hname.find("Data")) {
-          for (int i = 0; i< binx; i++){
-                  if(string::npos != sname.find("pvntrk")) ndtrks.push_back(h2->GetBinContent(i));
-                  binContent2[i] = h2->GetBinContent(i);
-                  binerror2[i] = h2->GetBinError(i);
-          }
-  }
-  else if (string::npos != hname.find("Mc")){
-          for (int i = 0; i< binx; i++){
-                  if(string::npos != sname.find("pvntrk")) nmctrks.push_back(h2->GetBinContent(i));
-                  binContent2[i] = h2->GetBinContent(i);
-                  binerror2[i] = h2->GetBinError(i);
-          }
-  }
-
-
-  for(int x  =0; x< ndtrks.size(); x++){
-      if (string::npos != sname.find("Presel") && string::npos != hname.find("Presel")){
-	  weighted[x] = ndtrks[x]/nmctrks[x];   
-          binerror[x] = weighted[x];
-          binerror2[x] = binerror[x];
-          if (ratio[x]==0 || binContent[x]==0 || ndtrks[x]==0 || nmctrks[x]==0 || weighted[x]==0) continue;          
-	  if (string::npos != sname.find("Data")) h1->Fill(binContent[x], binerror[x]);
-          else h2->Fill(binContent2[x], binerror2[x]);
-      }     
-  }
-
-  return;
-//  cout << sname << " NAMEESSSSSS " << hname << endl;
-  //sbs_ad0bdt_bupsikData_pvntrkPresel NAMEESSSSSS sbs_ad0bdt_bupsikMcOff_pvntrkPresel
-}
-
 // ----------------------------------------------------------------------
 void plotReducedOverlays::overlayAndRatio(TCanvas *c, TH1D *h1, TH1D *h2) {
   bool drawGrid(true);
@@ -2431,27 +2282,6 @@ void plotReducedOverlays::overlayAndRatio(TCanvas *c, TH1D *h1, TH1D *h2) {
 
   pad1->cd();
 }
-
-/*void plotReducedOverlays::weight(){
-
-  TFile *f1 = TFile::Open(filename.c_str());
-
-  vector<string> vars;
-  string sample = "bupsik";
-  TH1D *hm(0), *hd(0);
-  string hname("");
-  vector<string> channels;
-  channels.push_back("ad0bdt");
-  channels.push_back("ad1bdt");
-  for (unsigned int ichan = 0; ichan < channels.size(); ++ichan) {
-    if (string::npos != channels[ichan].find("bdt")) {
-       for (unsigned int iv = 0; iv < vars.size(); ++iv) {
-            hname = Form("sbs_%s_%sMcComb_%s%s", channels[ichan].c_str(), sample.c_str(), vars[iv].c_str(), sel.c_str());
-            hm = (TH1D*)f1->Get(hname.c_str());
-      }
-    }
-  }
-}*/
 
 // ----------------------------------------------------------------------
 void plotReducedOverlays::loadFiles(string afiles) {
