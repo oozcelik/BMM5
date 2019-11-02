@@ -100,7 +100,7 @@ public:
   void bookDistributions(std::string selmode = "");
   void fillDistributions(std::string selmode = "");
   void sbsDistributions(std::string sample, std::string selection = "Presel", std::string what = "");
-  void weight(TH1D *h1, TH1D *h2);
+  //void weight(TH1D *h1, TH1D *h2);
   void overlay(std::string sample1, std::string sample2, std::string selection = "Presel", std::string what = "");
   void overlayAndRatio(TCanvas *c, TH1D *h1, TH1D *h2);
   void overlay2Files(std::string file1, std::string sample1, std::string chan1, std::string selection1,
