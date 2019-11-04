@@ -27,6 +27,9 @@
 #include "FWCore/Framework/interface/LuminosityBlock.h"
 #include "DataFormats/Luminosity/interface/LumiSummary.h"
 #include "DataFormats/Common/interface/ConditionsInEdm.h"
+#include "SimDataFormats/PileupSummaryInfo/interface/PileupSummaryInfo.h"
+#include "PhysicsTools/Utilities/interface/LumiReWeighting.h"
+#include "PhysicsTools/Utilities/interface/LumiReweightingStandAlone.h"
 
 #include "FWCore/Framework/interface/ESHandle.h"
 #include "CommonTools/Statistics/interface/ChiSquared.h"
@@ -58,7 +61,9 @@ HFDumpStuff::HFDumpStuff(const edm::ParameterSet& iConfig):
   fLumiSummaryLabel(iConfig.getUntrackedParameter<InputTag>("LumiSummaryLabel", InputTag("lumiProducer"))),
   fBeamSpotLabel(iConfig.getUntrackedParameter<InputTag>("BeamSpotLabel", InputTag("offlineBeamSpot"))),
   fPrimaryVertexLabel(iConfig.getUntrackedParameter<InputTag>("PrimaryVertexLabel", InputTag("offlinePrimaryVertices"))),
-  fPrimaryVertexTracksLabel(iConfig.getUntrackedParameter<InputTag>("PrimaryVertexTracksLabel", InputTag("generalTracks")))
+  fPrimaryVertexTracksLabel(iConfig.getUntrackedParameter<InputTag>("PrimaryVertexTracksLabel", InputTag("generalTracks"))),
+  fPileUpInfo(iConfig.getUntrackedParameter<InputTag>("PileUpLabel", InputTag("addPileupInfo"))),
+  pileup_path_(iConfig.getUntrackedParameter<string>("pileup_path", string("/t3home/oozcelik/bmm/CMSSW_9_4_6_patch1/src/Bmm/RootAnalysis/macros/")))
 {
   cout << "----------------------------------------------------------------------" << endl;
   cout << "--- HFDumpStuff constructor" << endl;
@@ -67,12 +72,15 @@ HFDumpStuff::HFDumpStuff(const edm::ParameterSet& iConfig):
   cout << "---  BeamSpotLabel:              " << fBeamSpotLabel << endl;
   cout << "---  PrimaryVertexLabel:         " << fPrimaryVertexLabel << endl;
   cout << "---  PrimaryVertexTracksLabel:   " << fPrimaryVertexTracksLabel << endl;
+  cout << "---  PileUpLabel	    " << fPileUpInfo << endl;
   cout << "----------------------------------------------------------------------" << endl;
 
   fTokenLumiSummary = consumes<LumiSummary, edm::InLumi>(fLumiSummaryLabel);
   fTokenBeamSpot    = consumes<BeamSpot>(fBeamSpotLabel);
   fTokenTrack       = consumes<vector<Track> >(fPrimaryVertexTracksLabel) ;
   fTokenVertex      = consumes<VertexCollection>(fPrimaryVertexLabel);
+  fPileUp           = consumes<vector<PileupSummaryInfo>>(fPileUpInfo);
+  lumi_weights      = edm::LumiReWeighting(pileup_path_ + "PileupMC.root", pileup_path_ + "MyDataPileupHistogram.root", "input_Event/N_TrueInteractions", "pileup");
 }
 
 
@@ -121,6 +129,27 @@ void HFDumpStuff::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
 
   gHFEvent->fLumi     = instlumi;
   gHFEvent->fLumiInt  = intlumi;
+
+
+  // pileup re-weighting 
+
+   float tnpv = -1;       // True number of primary vertices
+   float wpu = 1;         // Pile-up re-weight factor
+
+   Handle<vector<PileupSummaryInfo>> info;
+   iEvent.getByToken(fPileUp, info);
+   for (std::vector<PileupSummaryInfo>::const_iterator pvi = info->begin(); pvi != info->end(); ++pvi) {
+	int bx = pvi->getBunchCrossing();
+	if (bx == 0) {
+		tnpv = pvi->getTrueNumInteractions();
+		continue;
+	}
+    }
+
+   wpu = lumi_weights.weight(tnpv);
+
+   gHFEvent->fwpu = wpu;
+ 
 
   // -- beam spot
   BeamSpot beamSpot;
@@ -245,6 +274,7 @@ void HFDumpStuff::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
 // ------------ method called once each job just before starting event loop  ------------
 void  HFDumpStuff::beginJob() {
 }
+
 
 // ------------ method called once each job just after ending the event loop  ------------
 void  HFDumpStuff::endJob() {
