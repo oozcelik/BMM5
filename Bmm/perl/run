@@ -61,7 +61,7 @@ getopts('bCc:dD:l:L:m:q:r:R:t:v:x:');
 my $user  = $ENV{'USER'};
 my $home  = $ENV{'HOME'};
 (my $uhome = $home) =~ s|[^/]+$||;
-$uhome .= "ursl";
+$uhome .= "oozcelik";
 my $glite = "$home/grid/glite.conf";
 my $qsub = "/gridware/sge/bin/lx24-amd64/qsub  ";
 # -- if you want to exclude some nodes:
@@ -92,6 +92,8 @@ my $SRMCP = "\"lcg-cp -b -D srmv2\"";
 if ($opt_m eq "batch") {$SRMCP = "\"srmcp -2 -globus_tcp_port_range 20000,25000\"";}
 if ($opt_m eq "batch") {$SRMCP = "\"srmcp -2 --streams_num=1\"";}
 if ($opt_m eq "batch") {$SRMCP = "\"lcg-cp -b -D srmv2\"";}
+if ($opt_m eq "slurm") {$SRMCP = "\"srmcp -2 --streams_num=1\"";}
+if ($opt_m eq "slurm") {$SRMCP = "\"lcg-cp -b -D srmv2\"";}
 if ($opt_m eq "local" || $opt_m eq "debug") {$SRMCP = "\"lcg-cp -b -D srmv2\"";}
 
 my $jobsList = "jobs.list";
@@ -144,8 +146,10 @@ if ($opt_l) {
 	for ($i = 51; $i <= 59; $i++) {
 	    $opt_q .= "$queue\@t3wn$i.psi.ch";
 	}
+    print "queue motherfuckers $opt_q\n";
     }
 }
+
 
 my $host = `hostname`;
 chop($host);
@@ -266,7 +270,6 @@ foreach $jobfile (@ARGV) {
 	} else {
 	    print "$qsub -q $opt_q $nodelist -N $jobName -o $pwd/$tdir/$job.sge.log -e $pwd/$tdir/$job.sge.err ./$job.csh\n";
 	    $result = `$qsub -q $opt_q $nodelist -N $jobName -o $pwd/$tdir/$job.sge.log -e $pwd/$tdir/$job.sge.err ./$job.csh`;
-	    #print "run job sumission result: ->$result<-\n";
 	    chop($result);
 	    $result =~ s/Your job //g;
 	    $result =~ s/ has been submitted//g;
@@ -299,6 +302,27 @@ foreach $jobfile (@ARGV) {
 	    system("/usr/bin/tail -2 $jobsList >> ../$jobsList");
 	}
     }
+     elsif($opt_m eq "slurm"){
+            print "sbatch -p wn --account=cn-test $jobName -o $pwd/$tdir/$job.sge.log -e $pwd/$tdir/$job.sge.err ./$job.csh\n";
+            $result = `sbatch -p wn --account=cn-test $jobName -o $pwd/$tdir/$job.sge.log -e $pwd/$tdir/$job.sge.err ./$job.csh`;
+            chop($result);
+            $result =~ s/Your job //g;
+            $result =~ s/ has been submitted//g;
+            ($sgeNumber, $sgeName) = split(/\(/, $result, 2);
+            $sgeName =~ s/\)//g;
+            $sgeName =~ s/\"//g;
+            $sgeNumber =~ s/\ //g;
+            $sgeName =~ s/\ //g;
+            print "Submitted ->$sgeNumber<- with name ->$sgeName<-\n";
+
+            open(IN, ">>$jobsList") || die "Cannot open $jobsList\n";
+            print IN "###Submitted Job Ids###\n";
+            print IN "sge $tdir \n";
+            print IN "\# $timeStamp $pwd/$tdir $sgeName $sgeNumber\n";
+            close(IN);
+            system("/usr/bin/tail -2 $jobsList >> ../$jobsList"); 	
+
+     }
 
     chdir("..");
 }
@@ -373,7 +397,7 @@ sub makeCshFile {
     open(OUT, ">$ljob.csh")  || die "Cannot open $ljob.csh\n";
     my $datum = `/bin/date`; chop $datum;
     while (<IN>) {
-	if (($opt_m eq "batch" || $opt_m eq "local" || $opt_m eq "debug") && /\# BATCH START/) {
+	if (($opt_m eq "batch" || $opt_m eq "local" || $opt_m eq "debug" || $opt_m eq "slurm") && /\# BATCH START/) {
 	    print OUT "# BATCH START\n";
 	    print OUT "mkdir -p /scratch/$user\n";
 	    print OUT "cd /scratch/$user\n";
@@ -384,7 +408,7 @@ sub makeCshFile {
 	    print OUT "/bin/cp $pwd/$tdir/$ljobfile .\n";
 	}
 
-	if (($opt_m eq "batch" || $opt_m eq "local" || $opt_m eq "debug") && /\# BATCH END/) {
+	if (($opt_m eq "batch" || $opt_m eq "local" || $opt_m eq "debug" || $opt_m eq "slurm") && /\# BATCH END/) {
 	    if ($opt_m eq "debug") {
 		# do nothing!
 	    } else {
