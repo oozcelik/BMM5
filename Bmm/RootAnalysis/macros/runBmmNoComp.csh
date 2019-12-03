@@ -62,7 +62,7 @@ cmsrel $CMSSW
 
 cd $CMSSW/
 eval `scramv1 runtime -csh`
-#?? setenv LD_LIBRARY_PATH /swshare/glite/d-cache/dcap/lib/:${LD_LIBRARY_PATH}
+setenv LD_LIBRARY_PATH lib/:${LD_LIBRARY_PATH} ## for slurm system!!!!
 pwd
 
 echo "--> Extract tar file"
@@ -91,6 +91,7 @@ echo " job   rootfile: $FILE1"
 
 echo lcg-del -b -D srmv2 -l  "$PFNS/$STORAGE1/$FILE1"
 lcg-del -b -D srmv2 -l "$PFNS/$STORAGE1/$FILE1"
+
 # -- switch to data_replica.py
 #ls `pwd`/$FILE1 > dr.list
 #echo "--> cat dr.list: "
