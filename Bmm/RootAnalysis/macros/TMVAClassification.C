@@ -78,8 +78,6 @@ int TMVAClassification( TString myMethodList = "" )
 
    // Boosted Decision Trees
    Use["BDT"]             = 1; // uses Adaptive Boost
-   Use["BDTG"]            = 0; // uses Gradient Boost
-   Use["BDTB"]            = 0; // uses Bagging
    // ---------------------------------------------------------------
 
    std::cout << std::endl;
