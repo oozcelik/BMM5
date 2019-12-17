@@ -151,23 +151,16 @@ int TMVAClassification( TString myMethodList = "" )
                                                "!V:!Silent:Color:DrawProgressBar:Transformations=I;D;P;G,D:AnalysisType=Classification" );
 
    TMVA::DataLoader *dataloader=new TMVA::DataLoader("dataset");
-   // If you wish to modify default settings
-   // (please check "src/Config.h" to see all available global options)
-   //
-   //    (TMVA::gConfig().GetVariablePlotting()).fTimesRMS = 8.0;
-   //    (TMVA::gConfig().GetIONames()).fWeightFileDir = "myWeightDirectory";
-
-   // Define the input variables that shall be used for the MVA training
-   // note that you may also use variable expressions, such as: "3*var1/var2*abs(var3)"
-   // [all types of expressions that can also be parsed by TTree::Draw( "expression" )]
-
-     dataloader->AddVariable( "pt", 'F' );
-     dataloader->AddVariable( "eta", 'F' );
+  
+   // muon BDT variables 
+   
+ //    dataloader->AddVariable( "pt", 'F' );
+ //    dataloader->AddVariable( "eta", 'F' );
 //     dataloader->AddVariable( "Qprod", 'I' );
 //     dataloader->AddVariable( "vMuonHitComb", 'F' );
  //    dataloader->AddVariable( "trkRelChi2", 'F' );
 //     dataloader->AddVariable( "TMTrkMult100", 'F' );
-/*     dataloader->AddVariable( "valPixHits", 'F' );
+     dataloader->AddVariable( "valPixHits", 'F' );
      dataloader->AddVariable( "innerChi2", 'F' );
      dataloader->AddVariable( "outerChi2", 'F' );
      dataloader->AddVariable( "timeAtIpInOutErr", 'F' );
@@ -182,10 +175,7 @@ int TMVAClassification( TString myMethodList = "" )
      dataloader->AddVariable( "NTrkVHits", 'F' );
      dataloader->AddVariable( "chi2LocPos", 'F' );
      dataloader->AddVariable( "chi2LocMom", 'F' );
-     dataloader->AddVariable( "segComp", 'F' );*/
- //    dataloader->AddVariable( "gmuid", 'I');
- //    dataloader->AddVariable( "gmu1gmid", 'F');
-//     dataloader->AddVariable( "gmu2gmid", 'F');
+     dataloader->AddVariable( "segComp", 'F' );
 
    // You can add so-called "Spectator variables", which are not used in the MVA training,
    // but will appear in the final "TestTree" produced by TMVA. This TestTree will contain the
@@ -249,6 +239,7 @@ int TMVAClassification( TString myMethodList = "" )
 
 
    // Apply additional cuts on the signal and background samples (can be different)
+   // For the signal, tracks should be global muon!! ////// 
    TCut mycuts = "gmu1gmid>0 && gmu2gmid>0 && chi2LocMom>0 && chi2LocPos>0 && segComp>0  ";
 //&& 0<trkRelChi2<1.2 && 0<kinkFinder<30 && 0<glbKinkFinder<50 && 0<NTrkVHits<35 && 0<valPixHits<8 && 0<LWH<20 && 0<vMuonHitComb<35 && 0<segComp<1.2 && 0<timeAtIpInOutErr<3.5 && 0<innerChi2<3 && 0<outerChi2<4 && 0.7<trkValidFract<1 "; // for example: TCut mycuts = "abs(var1)<0.5 && abs(var2-0.5)<1";
    TCut mycutb = "chi2LocMom>0 && chi2LocPos>0 && segComp>0";
@@ -260,37 +251,20 @@ int TMVAClassification( TString myMethodList = "" )
    //
    // If no numbers of events are given, half of the events in the tree are used
    // for training, and the other half for testing:
-   //
-//       dataloader->PrepareTrainingAndTestTree( mycuts, mycutb, "SplitMode=random:!V" );
-   //
-   // To also specify the number of testing events, use:
-   //
-   //    dataloader->PrepareTrainingAndTestTree( mycut,
-   //         "NSigTrain=3000:NBkgTrain=3000:NSigTest=3000:NBkgTest=3000:SplitMode=Random:!V" );
+   
+   // dataloader->PrepareTrainingAndTestTree( mycuts, mycutb, "SplitMode=random:!V" );
+  
+   // split training and testing events
    dataloader->PrepareTrainingAndTestTree( mycuts, mycutb,
-                                        "nTrain_Signal=400:SplitSeed=<Random number>:NormMode=NumEvents:!V" );
+                                        "nTrain_Signal=500:nTrain_Background=500:SplitMode=Random:NormMode=NumEvents:!V" );
 
    // ### Book MVA methods
-   //
-   // Please lookup the various method configuration options in the corresponding cxx files, eg:
-   // src/MethoCuts.cxx, etc, or here: http://tmva.sourceforge.net/optionRef.html
-   // it is possible to preset ranges in the option string in which the cut optimisation should be done:
-   // "...:CutRangeMin[2]=-1:CutRangeMax[2]=1"...", where [2] is the third input variable
-
-
-   // Boosted Decision Trees
-   if (Use["BDTG"]) // Gradient Boost
-      factory->BookMethod( dataloader, TMVA::Types::kBDT, "BDTG",
-                           "!H:!V:NTrees=1000:MinNodeSize=2.5%:BoostType=Grad:Shrinkage=0.10:UseBaggedBoost:BaggedSampleFraction=0.5:nCuts=20:MaxDepth=2" );
-
+ 
    if (Use["BDT"])  // Adaptive Boost
       factory->BookMethod( dataloader, TMVA::Types::kBDT, "BDT",
                            "!H:!V:NTrees=850:MinNodeSize=2.5%:MaxDepth=3:BoostType=AdaBoost:AdaBoostBeta=0.5:UseBaggedBoost:BaggedSampleFraction=0.5:SeparationType=GiniIndex:nCuts=20" );
 
-   if (Use["BDTB"]) // Bagging
-      factory->BookMethod( dataloader, TMVA::Types::kBDT, "BDTB",
-                           "!H:!V:NTrees=400:BoostType=Bagging:SeparationType=GiniIndex:nCuts=20" );
-
+ 
    // For an example of the category classifier usage, see: TMVAClassificationCategory
    //
    // --------------------------------------------------------------------------------------------------
