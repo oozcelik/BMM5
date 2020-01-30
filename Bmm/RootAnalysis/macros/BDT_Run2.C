@@ -6,7 +6,7 @@
  ***********************************************************************************/
 
 //Usage:
-//
+// Ozlem OZCELIK : This is the first commit !
 
 #include <cstdlib>
 #include <iostream>
