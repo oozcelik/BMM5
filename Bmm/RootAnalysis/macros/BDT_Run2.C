@@ -52,7 +52,7 @@ int BDT_Run2( TString filo = "MVAoutput.root", TString myMethodList = "" )
    Use["BDTG"]            = 0; // uses Gradient Boost
    Use["BDTB"]            = 0; // uses Bagging
    Use["BDTD"]            = 0; // decorrelation + Adaptive Boost
-   Use["BDTF"]            = 0; // allow usage of fisher discriminant for node splitting 
+
    // ---------------------------------------------------------------
 
    std::cout << std::endl;
