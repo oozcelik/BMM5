@@ -1,7 +1,6 @@
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //
 // HFBDT
-// ---------------------
 //
 // 2018/03/12 Stephan Wiederkehr      moved to hitpattern.numberOfAllHits (not backwards compatible!)
 // 2017/05/08 Stephan Wiederkehr      added variables glbKinkFinderLog & Qprod
