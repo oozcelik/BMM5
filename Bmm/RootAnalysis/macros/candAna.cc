@@ -882,21 +882,6 @@ void candAna::candAnalysis() {
 
     int muflag(0);
 
-  /*   for (int iC = 0; iC < fpEvt->nCands(); ++iC) {
-      pCand = fpEvt->getCand(iC);
-      q1 = fpEvt->getSigTrack(pCand->fSig1);
-      q2 = fpEvt->getSigTrack(pCand->fSig2);
-      pMom = fpEvt->getGenCand(pCand->fIndex);
-//      cout << " pCand type " << pCand->fType << " pCand ID " << pMom->fID << endl;
-      if (pCand->fType == 1000082){ //cout << "pCand->fSig1 = " << pCand->fSig1 << " pCand->fSig2 = " << pCand->fSig2 << " " << q1->fIndex << " " << q2->fIndex << endl;
-          q1->dump();
-          q2->dump();
-          cout << "----------------------------------------------------------------------" << endl;
-     }
-     else continue;
-    }*/
-
-//    cout << fRecM1Tmi << " " << fRecM2Tmi << endl;
 
     for (int i = 0; i < 2; ++i) {
       if (0 == i) {
@@ -918,19 +903,6 @@ void candAna::candAnalysis() {
        else continue;
       }
    }
-      for (int it = 0; it < fpEvt->nSimpleTracks(); ++it) {
-      sTrk = fpEvt->getSimpleTrack(it);
-       for (int ig = 0; ig < fpEvt->nGenCands(); ++ig) {
-          pC = fpEvt->getGenCand(ig);
-          if (sTrk->getGenIndex() > 0 && sTrk->getGenIndex() == pC->fDau1)
-      //    cout <<" dau1 " <<  it << " " << pC->fDau1 << " " << ig << endl;
-              sTrk->dump();
-          else if (sTrk->getGenIndex() >0 && sTrk->getGenIndex() == pC->fDau2)
-//         cout <<" dau2 " <<  it << " " << sTrk->getGenIndex() << " " << pC->fDau2 << " " << ig << endl;
-            sTrk->dump();         
-           }
-       }
-
 
      if (pt>0 && (pt->fMuID & 2) == 2)  muflag = 1;
      else muflag = -99;
@@ -967,35 +939,6 @@ void candAna::candAnalysis() {
       fMuonData.vMuonHitComb     = getDetVarComb(pt);
       fMuonData.Qprod            = static_cast<float>(pt->fInt1) * static_cast<float>(pt->fInt2);
    }
-/*   else if (p2->fMuIndex >0 && pt>0){
-    cout << " there is fake " << endl;
-      fMuonData.pt            = pt->fPlab.Perp();
-      fMuonData.eta          = pt->fPlab.Eta();
-      fMuonData.p            = pt->fPlab.Mag();
-      fMuonData.MomID         = TMath::Abs(pM->fID);
-      fMuonData.pID           = pC->fID;
-      fMuonData.gmuid         = muflag;
-      fMuonData.segComp       = pt->fSegmentComp;
-      fMuonData.chi2LocMom    = pt->fChi2LocalMomentum;
-      fMuonData.chi2LocPos    = pt->fChi2LocalPosition;
-      fMuonData.NTrkVHits     = static_cast<float>(pt->fNumberOfValidTrkHits);
-      fMuonData.glbTrackTailProb  = pt->fGtrkProb;
-      fMuonData.glbDeltaEtaPhi    = pt->fGlbDeltaEtaPhi;
-      fMuonData.trkValidFract     = pt->fItrkValidFraction;
-      fMuonData.LWH           = static_cast<float>(pt->fLayersWithHits);
-      fMuonData.dxyRef        = pt->fTip;
-      fMuonData.dzRef         = pt->fLip;
-      fMuonData.kinkFinder    = pt->fMuonChi2;
-      fMuonData.glbKinkFinder = pt->fGlbKinkFinder;
-      fMuonData.glbKinkFinderLOG = TMath::Log(2+pt->fGlbKinkFinder);
-      fMuonData.timeAtIpInOutErr  = pt->fTimeInOutE;
-      fMuonData.outerChi2     = pt->fOuterChi2;
-      fMuonData.valPixHits    = static_cast<float>(pt->fNumberOfValidPixHits);
-      fMuonData.TMTrkMult100     = static_cast<float>(pt->fTmTrkMult);
-      fMuonData.innerChi2        = pt->fInnerChi2;
-      fMuonData.trkRelChi2       = pt->fTrkRelChi2;
-      fMuonData.vMuonHitComb     = getDetVarComb(pt);
-      fMuonData.Qprod            = static_cast<float>(pt->fInt1) * static_cast<float>(pt->fInt2);}*/
    else {
       cout << " NO FAKE in the event " << fEvt << endl;
       fMuonData.pt            = -999.;
